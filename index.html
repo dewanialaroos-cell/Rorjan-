@@ -48,15 +48,14 @@ header {
   transition: all 0.4s;
 }
 header.scrolled { height: 68px; box-shadow: 0 4px 30px rgba(216,173,85,0.15); }
-
 .logo {
   font-family: 'Playfair Display', serif; font-size: 34px;
   letter-spacing: 4px; color: var(--gold);
   text-shadow: 0 1px 0 #a67c2e, 0 2px 0 #8a6524, 0 4px 8px rgba(216,173,85,0.5);
+  cursor: pointer;
 }
 .crown { display: block; text-align: center; font-size: 18px; margin-bottom: -4px; animation: crownFloat 3s ease-in-out infinite; }
 @keyframes crownFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
-
 nav { display: flex; gap: 32px; }
 nav a {
   color: #ddd; text-decoration: none; font-size: 13px;
@@ -70,7 +69,6 @@ nav a::after {
 }
 nav a:hover { color: var(--gold); }
 nav a:hover::after { width: 100%; left: 0; }
-
 .actions { display: flex; align-items: center; gap: 18px; }
 .search {
   width: 220px; padding: 11px 16px; border: 1px solid #333;
@@ -93,7 +91,7 @@ nav a:hover::after { width: 100%; left: 0; }
 
 /* HERO */
 .hero {
-  min-height: 550px; display: flex; align-items: center;
+  min-height: 520px; display: flex; align-items: center;
   padding: 60px 8%; position: relative; overflow: hidden;
 }
 .hero-bg {
@@ -162,19 +160,13 @@ nav a:hover::after { width: 100%; left: 0; }
   border-bottom: 1px solid var(--border); overflow: hidden;
 }
 .marquee-track { display: flex; gap: 60px; animation: scroll 30s linear infinite; white-space: nowrap; }
-.marquee-item {
-  color: var(--gold); font-size: 13px; letter-spacing: 4px;
-  text-transform: uppercase; font-weight: 500;
-}
+.marquee-item { color: var(--gold); font-size: 13px; letter-spacing: 4px; text-transform: uppercase; font-weight: 500; }
 .marquee-item::after { content: ' ◆ '; color: var(--gold); font-size: 8px; }
 @keyframes scroll { to { transform: translateX(-50%); } }
 
 /* CATEGORIES */
 .categories-section { padding: 60px 6%; }
-.section-head {
-  display: flex; justify-content: space-between;
-  align-items: flex-end; margin-bottom: 40px;
-}
+.section-head { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 40px; }
 .section-head h2 {
   font-family: 'Playfair Display', serif; font-size: 38px;
   text-shadow: 0 4px 20px rgba(216,173,85,0.3);
@@ -184,11 +176,7 @@ nav a:hover::after { width: 100%; left: 0; }
   background: linear-gradient(90deg, var(--gold), transparent);
   margin-top: 12px; box-shadow: 0 0 10px var(--gold);
 }
-
-.categories {
-  display: grid; grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
-}
+.categories { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
 .category {
   text-align: center; padding: 30px 15px;
   border: 1px solid var(--border); border-radius: 12px;
@@ -197,16 +185,8 @@ nav a:hover::after { width: 100%; left: 0; }
   overflow: hidden; opacity: 0; transform: translateY(30px);
 }
 .category.reveal { opacity: 1; transform: translateY(0); }
-.category.active {
-  border-color: var(--gold);
-  box-shadow: 0 0 30px rgba(216,173,85,0.4), inset 0 0 20px rgba(216,173,85,0.1);
-  transform: translateY(-8px);
-}
-.category:hover {
-  border-color: var(--gold);
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(216,173,85,0.2);
-}
+.category.active { border-color: var(--gold); box-shadow: 0 0 30px rgba(216,173,85,0.4); transform: translateY(-8px); }
+.category:hover { border-color: var(--gold); transform: translateY(-8px); box-shadow: 0 20px 40px rgba(216,173,85,0.2); }
 .cat-icon { font-size: 42px; margin-bottom: 14px; display: block; transition: transform 0.5s; }
 .category:hover .cat-icon { transform: scale(1.2) rotate(-10deg); }
 .category h3 { font-size: 15px; margin-bottom: 8px; font-weight: 600; }
@@ -221,34 +201,24 @@ nav a:hover::after { width: 100%; left: 0; }
 /* PRODUCTS */
 .products-section { padding: 20px 6% 80px; }
 .products-header {
-  display: flex; justify-content: space-between;
-  align-items: center; margin-bottom: 30px;
-  padding-bottom: 20px; border-bottom: 1px solid var(--border);
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid var(--border);
 }
-.products-header h2 {
-  font-family: 'Playfair Display', serif; font-size: 32px;
-  color: var(--gold);
-}
+.products-header h2 { font-family: 'Playfair Display', serif; font-size: 32px; color: var(--gold); }
 .products-header .back-btn {
   background: transparent; color: var(--gold);
   border: 1px solid var(--gold); padding: 10px 20px;
   border-radius: 6px; font-size: 12px; letter-spacing: 1.5px;
   text-transform: uppercase; cursor: pointer; transition: all 0.3s;
 }
-.products-header .back-btn:hover {
-  background: var(--gold); color: #000;
-}
-
-.products {
-  display: grid; grid-template-columns: repeat(4, 1fr);
-  gap: 22px;
-}
+.products-header .back-btn:hover { background: var(--gold); color: #000; }
+.products { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
 .product {
   background: linear-gradient(180deg, #121212, #0a0a0a);
   border: 1px solid var(--border); border-radius: 12px;
   overflow: hidden; transition: all 0.5s;
   opacity: 0; transform: translateY(30px);
-  position: relative;
+  position: relative; cursor: pointer;
 }
 .product.reveal { opacity: 1; transform: translateY(0); }
 .product:hover {
@@ -256,38 +226,26 @@ nav a:hover::after { width: 100%; left: 0; }
   box-shadow: 0 30px 60px rgba(0,0,0,0.6), 0 0 40px rgba(216,173,85,0.2);
   border-color: var(--gold);
 }
-
-.product-image {
-  height: 240px; overflow: hidden;
-  position: relative; background: #1a1a1a;
-}
-.product-image img {
-  width: 100%; height: 100%; object-fit: cover;
-  transition: transform 0.8s;
-}
+.product-image { height: 240px; overflow: hidden; position: relative; background: #1a1a1a; }
+.product-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s; }
 .product:hover .product-image img { transform: scale(1.1); }
-
 .product-badge {
   position: absolute; top: 12px; left: 12px;
   background: linear-gradient(135deg, var(--gold), var(--gold-light));
   color: #000; padding: 5px 12px; font-size: 10px;
   font-weight: 700; letter-spacing: 1.5px;
-  text-transform: uppercase; border-radius: 4px;
+  text-transform: uppercase; border-radius: 4px; z-index: 2;
 }
-.product-badge.new { background: linear-gradient(135deg, #4ade80, #22c55e); color: #000; }
+.product-badge.new { background: linear-gradient(135deg, #4ade80, #22c55e); }
 .product-badge.hot { background: linear-gradient(135deg, #ef4444, #dc2626); color: #fff; }
-
 .product-info { padding: 18px; }
 .product h3 { font-size: 15px; margin-bottom: 8px; font-weight: 500; line-height: 1.4; }
 .stars { color: #f5c542; font-size: 12px; margin-bottom: 10px; letter-spacing: 1px; }
+.stars span { color: var(--text-dim); font-size: 11px; margin-left: 6px; }
 .price { color: #fff; font-weight: 600; font-size: 18px; margin-bottom: 14px; }
-.price .old-price {
-  color: var(--text-dim); text-decoration: line-through;
-  font-size: 12px; margin-left: 6px; font-weight: 400;
-}
+.price .old-price { color: var(--text-dim); text-decoration: line-through; font-size: 12px; margin-left: 6px; font-weight: 400; }
 .cart-btn {
-  width: 100%; padding: 12px;
-  background: transparent; color: var(--gold);
+  width: 100%; padding: 12px; background: transparent; color: var(--gold);
   border: 1.5px solid var(--gold); border-radius: 6px;
   cursor: pointer; font-size: 11px; letter-spacing: 1.5px;
   text-transform: uppercase; font-weight: 600;
@@ -299,8 +257,326 @@ nav a:hover::after { width: 100%; left: 0; }
   transform: scaleX(0); transform-origin: left;
   transition: transform 0.4s; z-index: -1;
 }
-.cart-btn:hover { color: #000; box-shadow: 0 8px 25px rgba(216,173,85,0.4); }
+.cart-btn:hover { color: #000; }
 .cart-btn:hover::before { transform: scaleX(1); }
+
+/* ============ PRODUCT DETAIL PAGE WITH 3D VIEWER ============ */
+.detail-page {
+  position: fixed; inset: 0;
+  background: var(--bg);
+  z-index: 300; overflow-y: auto;
+  transform: translateX(100%);
+  transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.detail-page.open { transform: translateX(0); }
+.detail-header {
+  height: 70px; background: rgba(9,9,9,0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 5%; position: sticky; top: 0; z-index: 10;
+}
+.detail-back {
+  display: flex; align-items: center; gap: 10px;
+  color: var(--gold); font-size: 14px; font-weight: 600;
+  cursor: pointer; padding: 10px 18px;
+  border: 1px solid var(--gold); border-radius: 25px;
+  transition: all 0.3s; letter-spacing: 1px;
+}
+.detail-back:hover { background: var(--gold); color: #000; }
+.detail-logo { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--gold); letter-spacing: 3px; }
+.detail-container { max-width: 1200px; margin: 0 auto; padding: 50px 6%; }
+.detail-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 50px; margin-bottom: 60px; }
+
+/* 3D VIEWER */
+.viewer-wrap {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background: radial-gradient(circle at center, #1a1a1a 0%, #0a0a0a 100%);
+  border: 1px solid var(--border);
+  box-shadow: 0 30px 70px rgba(0,0,0,0.6);
+  user-select: none;
+  perspective: 1500px;
+}
+
+.viewer-stage {
+  position: relative;
+  width: 100%;
+  height: 550px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  transform-style: preserve-3d;
+}
+.viewer-stage:active { cursor: grabbing; }
+
+.viewer-3d {
+  position: relative;
+  width: 380px;
+  height: 380px;
+  transform-style: preserve-3d;
+  transition: transform 0.1s linear;
+}
+.viewer-3d.auto-rotate {
+  animation: autoRotate 20s linear infinite;
+}
+@keyframes autoRotate {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(360deg); }
+}
+
+.viewer-face {
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 
+    0 20px 60px rgba(0,0,0,0.8),
+    0 0 40px rgba(216,173,85,0.2),
+    inset 0 0 30px rgba(216,173,85,0.05);
+  border: 2px solid rgba(216,173,85,0.3);
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+.viewer-face img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+
+/* 4 faces positioned as a cube */
+.viewer-face.front  { transform: translateZ(190px); }
+.viewer-face.back   { transform: rotateY(180deg) translateZ(190px); }
+.viewer-face.right  { transform: rotateY(90deg) translateZ(190px); }
+.viewer-face.left   { transform: rotateY(-90deg) translateZ(190px); }
+
+.viewer-glow {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(216,173,85,0.25), transparent 60%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  animation: viewerGlow 4s ease-in-out infinite;
+}
+@keyframes viewerGlow {
+  0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 1; transform: translate(-50%, -50%) scale(1.15); }
+}
+
+.viewer-controls {
+  position: absolute;
+  bottom: 20px; left: 50%;
+  transform: translateX(-50%);
+  display: flex; gap: 10px;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(15px);
+  padding: 10px 15px;
+  border-radius: 30px;
+  border: 1px solid rgba(216,173,85,0.3);
+  z-index: 5;
+}
+.viewer-btn {
+  width: 40px; height: 40px;
+  background: transparent;
+  border: 1px solid rgba(216,173,85,0.5);
+  color: var(--gold);
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.viewer-btn:hover, .viewer-btn.active {
+  background: var(--gold);
+  color: #000;
+  transform: scale(1.1);
+}
+.viewer-hint {
+  position: absolute;
+  top: 20px; left: 20px;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(10px);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: var(--gold);
+  border: 1px solid rgba(216,173,85,0.3);
+  animation: hintPulse 2s ease-in-out infinite;
+}
+@keyframes hintPulse {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+.viewer-angle-badge {
+  position: absolute;
+  top: 20px; right: 20px;
+  background: rgba(216,173,85,0.15);
+  backdrop-filter: blur(10px);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: var(--gold);
+  border: 1px solid rgba(216,173,85,0.3);
+  font-weight: 600;
+}
+
+.detail-badge {
+  position: absolute; top: 20px; left: 20px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  color: #000; padding: 8px 18px;
+  font-size: 12px; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase;
+  border-radius: 6px; z-index: 6;
+  box-shadow: 0 8px 20px rgba(216,173,85,0.5);
+}
+
+/* INFO SIDE */
+.detail-info h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px; font-weight: 700;
+  line-height: 1.2; margin-bottom: 20px;
+}
+.detail-rating { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+.detail-stars { color: #f5c542; font-size: 20px; letter-spacing: 3px; }
+.detail-rating-text { color: var(--text-dim); font-size: 14px; }
+.detail-price {
+  display: flex; align-items: baseline; gap: 14px;
+  margin-bottom: 30px; padding: 20px;
+  background: linear-gradient(90deg, rgba(216,173,85,0.1), transparent);
+  border-left: 3px solid var(--gold); border-radius: 6px;
+  flex-wrap: wrap;
+}
+.detail-price-current {
+  font-size: 38px; font-weight: 700;
+  color: var(--gold); font-family: 'Playfair Display', serif;
+}
+.detail-price-old { font-size: 20px; color: var(--text-dim); text-decoration: line-through; }
+.detail-price-save {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: #fff; padding: 6px 14px; border-radius: 20px;
+  font-size: 12px; font-weight: 700; letter-spacing: 1px;
+}
+.detail-desc {
+  color: #bbb; line-height: 1.9; font-size: 15px;
+  margin-bottom: 30px; padding-bottom: 30px;
+  border-bottom: 1px solid var(--border);
+}
+.detail-options { margin-bottom: 30px; }
+.detail-options-label {
+  font-size: 13px; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--text-dim);
+  margin-bottom: 12px; font-weight: 600;
+}
+.detail-colors, .detail-sizes { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 25px; }
+.color-option {
+  width: 42px; height: 42px; border-radius: 50%;
+  border: 2px solid transparent; cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+.color-option:hover, .color-option.selected {
+  border-color: var(--gold); transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(216,173,85,0.6);
+}
+.size-option {
+  padding: 10px 20px; background: transparent;
+  border: 1px solid var(--border); color: #fff;
+  border-radius: 6px; cursor: pointer;
+  font-size: 13px; font-weight: 600;
+  letter-spacing: 1px; transition: all 0.3s;
+}
+.size-option:hover, .size-option.selected {
+  border-color: var(--gold);
+  background: rgba(216,173,85,0.15);
+  color: var(--gold);
+}
+.detail-qty { display: flex; align-items: center; gap: 15px; margin-bottom: 30px; }
+.qty-btn {
+  width: 42px; height: 42px; background: transparent;
+  color: var(--gold); border: 1px solid var(--gold);
+  border-radius: 6px; font-size: 20px; cursor: pointer;
+  transition: all 0.3s; display: flex;
+  align-items: center; justify-content: center;
+}
+.qty-btn:hover { background: var(--gold); color: #000; }
+.qty-value { font-size: 20px; font-weight: 700; min-width: 40px; text-align: center; color: var(--gold); }
+.detail-actions { display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 30px; }
+.detail-actions .btn { flex: 1; min-width: 200px; padding: 18px 30px; }
+.btn-whatsapp {
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  box-shadow: 0 4px 0 #0e6b5c, 0 8px 20px rgba(37,211,102,0.4);
+}
+.btn-whatsapp:hover { box-shadow: 0 6px 0 #0e6b5c, 0 15px 35px rgba(37,211,102,0.6); }
+.detail-features {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 15px; padding: 25px;
+  background: #0d0d0d; border: 1px solid var(--border);
+  border-radius: 12px;
+}
+.feature-item { text-align: center; }
+.feature-icon { font-size: 28px; margin-bottom: 8px; display: block; }
+.feature-item h4 { font-size: 13px; margin-bottom: 4px; }
+.feature-item p { color: var(--text-dim); font-size: 11px; }
+
+/* REVIEWS */
+.reviews-section {
+  margin-top: 60px; padding-top: 50px;
+  border-top: 1px solid var(--border);
+}
+.reviews-header {
+  display: flex; justify-content: space-between;
+  align-items: center; margin-bottom: 35px;
+  flex-wrap: wrap; gap: 20px;
+}
+.reviews-header h2 { font-family: 'Playfair Display', serif; font-size: 32px; color: var(--gold); }
+.reviews-summary {
+  display: flex; align-items: center; gap: 20px;
+  background: #0d0d0d; padding: 18px 28px;
+  border-radius: 12px; border: 1px solid var(--border);
+}
+.reviews-avg { font-size: 42px; font-weight: 700; color: var(--gold); font-family: 'Playfair Display', serif; }
+.reviews-avg-stars { color: #f5c542; font-size: 18px; letter-spacing: 2px; }
+.reviews-count { color: var(--text-dim); font-size: 13px; }
+.reviews-list { display: grid; gap: 20px; }
+.review-card {
+  background: linear-gradient(180deg, #121212, #0a0a0a);
+  border: 1px solid var(--border); border-radius: 12px;
+  padding: 25px; transition: all 0.4s;
+}
+.review-card:hover {
+  border-color: var(--gold); transform: translateX(5px);
+  box-shadow: 0 15px 40px rgba(216,173,85,0.1);
+}
+.review-top {
+  display: flex; justify-content: space-between;
+  align-items: flex-start; margin-bottom: 15px;
+  flex-wrap: wrap; gap: 10px;
+}
+.review-user { display: flex; align-items: center; gap: 14px; }
+.review-avatar {
+  width: 50px; height: 50px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 20px; color: #000;
+  font-family: 'Playfair Display', serif;
+}
+.review-name { font-weight: 600; font-size: 15px; margin-bottom: 4px; }
+.review-date { color: var(--text-dim); font-size: 12px; }
+.review-stars { color: #f5c542; font-size: 14px; letter-spacing: 2px; }
+.review-text { color: #bbb; line-height: 1.7; font-size: 14px; font-style: italic; }
+.review-verified {
+  display: inline-flex; align-items: center; gap: 5px;
+  margin-top: 12px; color: #4ade80; font-size: 11px;
+  font-weight: 600; letter-spacing: 1px;
+}
 
 /* CART MODAL */
 .cart-modal {
@@ -322,10 +598,7 @@ nav a:hover::after { width: 100%; left: 0; }
   margin-bottom: 25px; padding-bottom: 20px;
   border-bottom: 1px solid var(--border);
 }
-.cart-header h2 {
-  font-family: 'Playfair Display', serif;
-  color: var(--gold); font-size: 24px;
-}
+.cart-header h2 { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 24px; }
 .close-cart {
   font-size: 24px; cursor: pointer; color: var(--gold);
   width: 36px; height: 36px;
@@ -335,8 +608,7 @@ nav a:hover::after { width: 100%; left: 0; }
 .close-cart:hover { background: rgba(216,173,85,0.15); transform: rotate(90deg); }
 .cart-item {
   display: flex; justify-content: space-between;
-  padding: 15px 0; border-bottom: 1px solid #1a1a1a;
-  font-size: 14px;
+  padding: 15px 0; border-bottom: 1px solid #1a1a1a; font-size: 14px;
 }
 .cart-item-info strong { display: block; margin-bottom: 5px; font-weight: 500; }
 .cart-item-info small { color: var(--text-dim); font-size: 12px; }
@@ -344,7 +616,7 @@ nav a:hover::after { width: 100%; left: 0; }
 .remove-item {
   background: none; border: none; color: #666;
   cursor: pointer; font-size: 11px; margin-top: 6px;
-  text-decoration: underline; transition: color 0.3s;
+  text-decoration: underline;
 }
 .remove-item:hover { color: #ef4444; }
 .cart-total {
@@ -375,24 +647,14 @@ footer {
   background: #050505; border-top: 1px solid var(--border);
   padding: 60px 6% 25px; position: relative; overflow: hidden;
 }
-footer::before {
-  content: ''; position: absolute; top: 0; left: 50%;
-  width: 800px; height: 2px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
-  transform: translateX(-50%); box-shadow: 0 0 30px var(--gold);
-}
 .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 40px; }
 .footer-logo {
   font-family: 'Playfair Display', serif;
   color: var(--gold); font-size: 30px;
   letter-spacing: 4px; margin-bottom: 15px;
-  text-shadow: 0 4px 20px rgba(216,173,85,0.5);
 }
 footer p { color: var(--text-dim); font-size: 13px; line-height: 1.8; }
-footer h3 {
-  margin-bottom: 20px; font-size: 13px;
-  letter-spacing: 2px; text-transform: uppercase;
-}
+footer h3 { margin-bottom: 20px; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; }
 footer a {
   display: block; color: var(--text-dim);
   text-decoration: none; margin-bottom: 10px;
@@ -409,8 +671,7 @@ footer a:hover { color: var(--gold); transform: translateX(8px); }
   padding: 12px 18px;
   background: linear-gradient(135deg, var(--gold), var(--gold-light));
   border: none; font-weight: 700; font-size: 11px;
-  letter-spacing: 1.5px; text-transform: uppercase;
-  cursor: pointer;
+  letter-spacing: 1.5px; text-transform: uppercase; cursor: pointer;
 }
 .copyright {
   margin-top: 45px; padding-top: 22px;
@@ -424,33 +685,60 @@ footer a:hover { color: var(--gold); transform: translateX(8px); }
   .categories { grid-template-columns: repeat(3, 1fr); }
   .products { grid-template-columns: repeat(3, 1fr); }
   .footer-grid { grid-template-columns: 1fr 1fr; }
+  .detail-grid { grid-template-columns: 1fr; gap: 30px; }
+  .viewer-stage { height: 450px; }
+  .viewer-3d { width: 300px; height: 300px; }
+  .viewer-face.front  { transform: translateZ(150px); }
+  .viewer-face.back   { transform: rotateY(180deg) translateZ(150px); }
+  .viewer-face.right  { transform: rotateY(90deg) translateZ(150px); }
+  .viewer-face.left   { transform: rotateY(-90deg) translateZ(150px); }
 }
 @media (max-width: 900px) {
   header { padding: 0 20px; }
   nav { display: none; }
   .search { width: 130px; }
-  .hero { min-height: 500px; padding: 45px 25px; }
+  .hero { min-height: 480px; padding: 45px 25px; }
   .hero h1 { font-size: 60px; letter-spacing: 8px; }
   .categories { grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .products { grid-template-columns: repeat(2, 1fr); gap: 14px; }
   .product-image { height: 180px; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
+  .detail-info h1 { font-size: 32px; }
+  .detail-price-current { font-size: 30px; }
+  .detail-features { grid-template-columns: 1fr; }
+  .reviews-summary { padding: 15px 20px; }
+  .reviews-avg { font-size: 32px; }
 }
 @media (max-width: 550px) {
   .logo { font-size: 26px; }
   .actions { gap: 8px; }
   .search { display: none; }
   .hero h1 { font-size: 44px; letter-spacing: 5px; }
-  .section-head h2 { font-size: 26px; }
-  .products-header h2 { font-size: 22px; }
-  .products-header { flex-direction: column; align-items: flex-start; gap: 12px; }
   .product-image { height: 160px; }
   .product-info { padding: 12px; }
   .product h3 { font-size: 13px; }
   .price { font-size: 15px; }
-  .cart-btn { padding: 9px; font-size: 10px; letter-spacing: 1px; }
+  .cart-btn { padding: 9px; font-size: 10px; }
   .footer-grid { grid-template-columns: 1fr; }
-  .section-head { flex-direction: column; align-items: flex-start; gap: 15px; }
+  .detail-info h1 { font-size: 26px; }
+  .detail-price-current { font-size: 26px; }
+  .detail-price-old { font-size: 16px; }
+  .detail-container { padding: 25px 5%; }
+  .reviews-header h2 { font-size: 24px; }
+  .reviews-summary { flex-direction: column; gap: 8px; padding: 15px; }
+  .detail-header { padding: 0 15px; height: 62px; }
+  .detail-back { padding: 8px 14px; font-size: 12px; }
+  .detail-logo { font-size: 18px; }
+  .detail-actions .btn { min-width: 100%; }
+  .viewer-stage { height: 340px; }
+  .viewer-3d { width: 220px; height: 220px; }
+  .viewer-face.front  { transform: translateZ(110px); }
+  .viewer-face.back   { transform: rotateY(180deg) translateZ(110px); }
+  .viewer-face.right  { transform: rotateY(90deg) translateZ(110px); }
+  .viewer-face.left   { transform: rotateY(-90deg) translateZ(110px); }
+  .viewer-hint { font-size: 9px; padding: 6px 12px; }
+  .viewer-angle-badge { font-size: 9px; padding: 6px 12px; }
+  .viewer-btn { width: 36px; height: 36px; font-size: 14px; }
 }
 </style>
 </head>
@@ -458,9 +746,8 @@ footer a:hover { color: var(--gold); transform: translateX(8px); }
 
 <div class="particles" id="particles"></div>
 
-<!-- HEADER -->
 <header id="header">
-  <div class="logo"><span class="crown">♕</span>RORJAN</div>
+  <div class="logo" onclick="showAll()"><span class="crown">♕</span>RORJAN</div>
   <nav>
     <a onclick="showAll()">Home</a>
     <a onclick="scrollToCategories()">Categories</a>
@@ -472,13 +759,10 @@ footer a:hover { color: var(--gold); transform: translateX(8px); }
     <input class="search" type="text" placeholder="Search for products...">
     <span class="icon">♙</span>
     <span class="icon">♡</span>
-    <span class="icon" onclick="openCart()">
-      🛒<span class="cart-count" id="cartCount">0</span>
-    </span>
+    <span class="icon" onclick="openCart()">🛒<span class="cart-count" id="cartCount">0</span></span>
   </div>
 </header>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
@@ -493,7 +777,6 @@ footer a:hover { color: var(--gold); transform: translateX(8px); }
   </div>
 </section>
 
-<!-- MARQUEE -->
 <div class="marquee">
   <div class="marquee-track">
     <div class="marquee-item">FREE SHIPPING IN SAUDI ARABIA</div>
@@ -507,15 +790,11 @@ footer a:hover { color: var(--gold); transform: translateX(8px); }
   </div>
 </div>
 
-<!-- CATEGORIES -->
 <section class="categories-section" id="categories">
-  <div class="section-head">
-    <h2>Shop by Category</h2>
-  </div>
+  <div class="section-head"><h2>Shop by Category</h2></div>
   <div class="categories" id="categoriesGrid"></div>
 </section>
 
-<!-- PRODUCTS -->
 <section class="products-section" id="products">
   <div class="products-header">
     <h2 id="productsTitle">All Products</h2>
@@ -524,7 +803,6 @@ footer a:hover { color: var(--gold); transform: translateX(8px); }
   <div class="products" id="productsGrid"></div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-grid">
     <div>
@@ -558,6 +836,16 @@ footer a:hover { color: var(--gold); transform: translateX(8px); }
   <div class="copyright">© 2026 RORJAN. All rights reserved.</div>
 </footer>
 
+<!-- PRODUCT DETAIL PAGE -->
+<div class="detail-page" id="detailPage">
+  <div class="detail-header">
+    <div class="detail-back" onclick="closeDetail()">← Back</div>
+    <div class="detail-logo">♕ RORJAN</div>
+    <div style="width:80px;"></div>
+  </div>
+  <div class="detail-container" id="detailContainer"></div>
+</div>
+
 <!-- CART MODAL -->
 <div class="cart-modal" id="cartModal">
   <div class="cart-content">
@@ -579,7 +867,7 @@ footer a:hover { color: var(--gold); transform: translateX(8px); }
 <div class="toast" id="toast"></div>
 
 <script>
-// ============ DATA ============
+// ============ CATEGORIES ============
 const categories = [
   { id: "men", name: "Men's Fashion", icon: "👕", desc: "Style for Him" },
   { id: "women", name: "Women's Fashion", icon: "👗", desc: "Elegance Always" },
@@ -591,64 +879,819 @@ const categories = [
   { id: "accessories", name: "Accessories", icon: "💎", desc: "Complete Your Look" }
 ];
 
+// ============ PRODUCTS WITH FULL DETAILS ============
 const allProducts = {
   men: [
-    { name: "Premium Cotton Hoodie", price: 159, oldPrice: 199, img: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=600&q=80", badge: "SALE" },
-    { name: "Classic Denim Jacket", price: 249, img: "https://images.unsplash.com/photo-1551537482-f2075a1d41f2?auto=format&fit=crop&w=600&q=80", badge: "NEW" },
-    { name: "Leather Biker Jacket", price: 549, oldPrice: 699, img: "https://images.unsplash.com/photo-1520975954732-35dd22299614?auto=format&fit=crop&w=600&q=80", badge: "HOT" },
-    { name: "Slim Fit Chinos", price: 189, img: "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?auto=format&fit=crop&w=600&q=80", badge: "NEW" },
-    { name: "Formal White Shirt", price: 149, img: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=600&q=80", badge: "SALE" }
+    {
+      name: "Premium Cotton Hoodie",
+      price: 159, oldPrice: 199,
+      img: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=800&q=80",
+      imgAlt1: "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=800&q=80",
+      imgAlt2: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=800&q=80&sat=-100",
+      imgAlt3: "https://images.unsplash.com/photo-1578681994506-b8f463449011?auto=format&fit=crop&w=800&q=80",
+      badge: "SALE",
+      rating: 4.8, reviewsCount: 124,
+      description: "Experience ultimate comfort with our Premium Cotton Hoodie. Made from 100% organic Egyptian cotton, this hoodie offers unmatched softness and breathability. Perfect for everyday wear, whether you're heading to the gym, running errands, or lounging at home.",
+      colors: ["#1a1a1a", "#3d3d3d", "#8b4513", "#2c3e50"],
+      sizes: ["S", "M", "L", "XL", "XXL"],
+      features: [
+        { icon: "🚚", title: "Free Shipping", desc: "All over KSA" },
+        { icon: "↩️", title: "Easy Returns", desc: "14 days" },
+        { icon: "🛡️", title: "Warranty", desc: "1 year" }
+      ],
+      reviews: [
+        { name: "Ahmed Al-Rashid", date: "2 days ago", rating: 5, text: "Excellent quality! The fabric is so soft and comfortable. Fits perfectly. Highly recommended!" },
+        { name: "Mohammed Saleh", date: "1 week ago", rating: 5, text: "Bahut acha hai. Delivery bhi fast thi. Colour bilkul waisa hi hai jaisa photo mein tha." },
+        { name: "Khalid Ibrahim", date: "2 weeks ago", rating: 4, text: "Very good quality hoodie. Only issue is it runs a bit small, order one size up." },
+        { name: "Faisal Al-Qahtani", date: "3 weeks ago", rating: 5, text: "Best hoodie I've ever bought. The stitching is top-notch. Worth every riyal!" },
+        { name: "Omar Hassan", date: "1 month ago", rating: 5, text: "Perfect for winter. Very warm and stylish. My wife also ordered one for herself!" }
+      ]
+    },
+    {
+      name: "Classic Denim Jacket", price: 249,
+      img: "https://images.unsplash.com/photo-1551537482-f2075a1d41f2?auto=format&fit=crop&w=800&q=80",
+      imgAlt1: "https://images.unsplash.com/photo-1544022613-e87ca75a784a?auto=format&fit=crop&w=800&q=80",
+      imgAlt2: "https://images.unsplash.com/photo-1601333144130-8cbb312386b6?auto=format&fit=crop&w=800&q=80",
+      imgAlt3: "https://images.unsplash.com/photo-1551537482-f2075a1d41f2?auto=format&fit=crop&w=800&q=80&sat=-50",
+      badge: "NEW", rating: 4.6, reviewsCount: 87,
+      description: "A timeless classic that never goes out of style. This Classic Denim Jacket is crafted from premium Japanese denim with a vintage wash finish. Features multiple pockets, durable button closure, and a comfortable fit that works with any outfit.",
+      colors: ["#1e3a5f", "#2c3e50", "#4a5568"],
+      sizes: ["S", "M", "L", "XL"],
+      features: [
+        { icon: "🚚", title: "Free Shipping", desc: "All over KSA" },
+        { icon: "↩️", title: "Easy Returns", desc: "14 days" },
+        { icon: "🛡️", title: "Warranty", desc: "1 year" }
+      ],
+      reviews: [
+        { name: "Saad Al-Mutairi", date: "3 days ago", rating: 5, text: "Amazing denim quality! Very durable and stylish. Perfect for casual outings." },
+        { name: "Abdullah Nasser", date: "1 week ago", rating: 5, text: "Bohot acha jacket hai. Colour aur quality dono excellent hain." },
+        { name: "Turki Al-Otaibi", date: "2 weeks ago", rating: 4, text: "Good quality but sleeves are slightly long. Still love it!" },
+        { name: "Rakan Al-Harbi", date: "3 weeks ago", rating: 5, text: "Worth the price. Excellent craftsmanship. Highly recommended for denim lovers." }
+      ]
+    },
+    {
+      name: "Leather Biker Jacket", price: 549, oldPrice: 699,
+      img: "https://images.unsplash.com/photo-1520975954732-35dd22299614?auto=format&fit=crop&w=800&q=80",
+      imgAlt1: "https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=800&q=80",
+      imgAlt2: "https://images.unsplash.com/photo-1520975954732-35dd22299614?auto=format&fit=crop&w=800&q=80&sat=-70",
+      imgAlt3: "https://images.unsplash.com/photo-1611312449408-fcece27cdbb7?auto=format&fit=crop&w=800&q=80",
+      badge: "HOT", rating: 4.9, reviewsCount: 156,
+      description: "Make a bold statement with our premium Leather Biker Jacket. Crafted from genuine full-grain leather with a soft inner lining for maximum comfort. Features asymmetric zipper, multiple pockets, and classic biker styling. This jacket ages beautifully and only gets better with time.",
+      colors: ["#0a0a0a", "#3d2b1f", "#4a1c1c"],
+      sizes: ["S", "M", "L", "XL", "XXL"],
+      features: [
+        { icon: "🚚", title: "Free Shipping", desc: "All over KSA" },
+        { icon: "↩️", title: "Easy Returns", desc: "14 days" },
+        { icon: "🛡️", title: "Warranty", desc: "2 years" }
+      ],
+      reviews: [
+        { name: "Bandar Al-Saud", date: "1 day ago", rating: 5, text: "Outstanding leather quality! Feels so premium. Everyone asks me where I got it from." },
+        { name: "Majed Al-Zahrani", date: "4 days ago", rating: 5, text: "Best purchase ever! The leather is genuine and soft. Worth every riyal." },
+        { name: "Nawaf Al-Dosari", date: "1 week ago", rating: 5, text: "Absolutely stunning jacket. The fit is perfect and the leather smell is amazing." },
+        { name: "Sultan Al-Ghamdi", date: "2 weeks ago", rating: 5, text: "Yaar kya jacket hai! Bilkul premium lag raha hai. Highly satisfied." },
+        { name: "Yazeed Al-Anazi", date: "3 weeks ago", rating: 4, text: "Excellent jacket but a bit heavy. Still, quality is unmatched." }
+      ]
+    },
+    {
+      name: "Slim Fit Chinos", price: 189,
+      img: "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?auto=format&fit=crop&w=800&q=80",
+      imgAlt1: "https://images.unsplash.com/photo-1624378439575-d8705ad7ae80?auto=format&fit=crop&w=800&q=80",
+      imgAlt2: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=800&q=80",
+      imgAlt3: "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?auto=format&fit=crop&w=800&q=80&sat=-40",
+      badge: "NEW", rating: 4.5, reviewsCount: 92,
+      description: "Upgrade your casual wardrobe with our Slim Fit Chinos. Made from premium stretch cotton blend for all-day comfort and flexibility. Features a modern slim fit, tapered legs, and durable construction. Perfect for both office and casual occasions.",
+      colors: ["#8b7355", "#2c3e50", "#556b2f", "#1a1a1a"],
+      sizes: ["28", "30", "32", "34", "36", "38"],
+      features: [
+        { icon: "🚚", title: "Free Shipping", desc: "All over KSA" },
+        { icon: "↩️", title: "Easy Returns", desc: "14 days" },
+        { icon: "🛡️", title: "Warranty", desc: "1 year" }
+      ],
+      reviews: [
+        { name: "Hassan Al-Amri", date: "5 days ago", rating: 5, text: "Perfect fit! The fabric is stretchy and comfortable. Bought 3 more in different colors." },
+        { name: "Ibrahim Al-Juhani", date: "2 weeks ago", rating: 4, text: "Good quality chinos. Color is exactly as shown. Fits well." },
+        { name: "Rayan Al-Malki", date: "3 weeks ago", rating: 5, text: "Very comfortable for daily wear. Office aur casual dono ke liye perfect hai." },
+        { name: "Ziyad Al-Shamrani", date: "1 month ago", rating: 5, text: "Excellent stitching and quality. Highly recommended!" }
+      ]
+    },
+    {
+      name: "Formal White Shirt", price: 149, oldPrice: 199,
+      img: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=800&q=80",
+      imgAlt1: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=800&q=80",
+      imgAlt2: "https://images.unsplash.com/photo-1620012253295-c15cc3e65df4?auto=format&fit=crop&w=800&q=80",
+      imgAlt3: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=800&q=80&sat=-20",
+      badge: "SALE", rating: 4.7, reviewsCount: 210,
+      description: "A wardrobe essential - our Formal White Shirt is crafted from 100% premium Egyptian cotton with a wrinkle-resistant finish. Features a classic collar, mother-of-pearl buttons, and a tailored fit. Perfect for business meetings, formal events, or any occasion that demands sophistication.",
+      colors: ["#ffffff", "#f5f5f5", "#e8e8e8"],
+      sizes: ["S", "M", "L", "XL", "XXL"],
+      features: [
+        { icon: "🚚", title: "Free Shipping", desc: "All over KSA" },
+        { icon: "↩️", title: "Easy Returns", desc: "14 days" },
+        { icon: "🛡️", title: "Warranty", desc: "1 year" }
+      ],
+      reviews: [
+        { name: "Fahad Al-Rashid", date: "1 day ago", rating: 5, text: "Best white shirt I've owned! The fabric is so smooth and doesn't wrinkle easily." },
+        { name: "Saud Al-Mansour", date: "3 days ago", rating: 5, text: "Perfect for office wear. Very comfortable and looks professional." },
+        { name: "Mishal Al-Sabah", date: "1 week ago", rating: 4, text: "Good quality shirt. Sleeves are a bit long but overall great." },
+        { name: "Abdulaziz Al-Faisal", date: "2 weeks ago", rating: 5, text: "Excellent shirt! Bought 5 for my work wardrobe. Highly recommended." },
+        { name: "Waleed Al-Ahmad", date: "3 weeks ago", rating: 5, text: "Premium quality at reasonable price. Perfect fit!" }
+      ]
+    }
   ],
   women: [
-    { name: "Elegant Evening Dress", price: 399, oldPrice: 499, img: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=600&q=80", badge: "SALE" },
-    { name: "Designer Handbag", price: 459, img: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=600&q=80", badge: "NEW" },
-    { name: "Cashmere Scarf", price: 179, oldPrice: 229, img: "https://images.unsplash.com/photo-1601924994987-69e26d50dc26?auto=format&fit=crop&w=600&q=80", badge: "HOT" },
-    { name: "Silk Blouse", price: 219, img: "https://images.unsplash.com/photo-1564257577017-1de1a1f6f2c6?auto=format&fit=crop&w=600&q=80", badge: "NEW" },
-    { name: "High Heel Sandals", price: 289, img: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=600&q=80", badge: "SALE" }
+    {
+      name: "Elegant Evening Dress", price: 399, oldPrice: 499,
+      img: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=800&q=80",
+      imgAlt1: "https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=800&q=80",
+      imgAlt2: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=800&q=80&sat=-60",
+      imgAlt3: "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&w=800&q=80",
+      badge: "SALE", rating: 4.9, reviewsCount: 178,
+      description: "Turn heads at every event with our Elegant Evening Dress. Crafted from luxurious silk-blend fabric with delicate lace detailing. Features a flattering A-line silhouette, concealed back zipper, and comfortable inner lining. Perfect for weddings, galas, and special occasions.",
+      colors: ["#1a1a1a", "#8b0000", "#191970", "#4a0e4e"],
+      sizes: ["XS", "S", "M", "L", "XL"],
+      features: [
+        { icon: "🚚", title: "Free Shipping", desc: "All over KSA" },
+        { icon: "↩️", title: "Easy Returns", desc: "14 days" },
+        { icon: "🛡️", title: "Warranty", desc: "1 year" }
+      ],
+      reviews: [
+        { name: "Noura Al-Rashid", date: "2 days ago", rating: 5, text: "Absolutely gorgeous dress! Wore it to my sister's wedding and got so many compliments." },
+        { name: "Sara Al-Mutairi", date: "5 days ago", rating: 5, text: "Bahut khoobsurat dress hai. Fabric premium hai aur fit perfect." },
+        { name: "Reem Al-Saud", date: "1 week ago", rating: 5, text: "Stunning! The lace detailing is beautiful. Worth every riyal." },
+        { name: "Lama Al-Otaibi", date: "2 weeks ago", rating: 4, text: "Beautiful dress, slightly long for me but easy to alter." }
+      ]
+    },
+    {
+      name: "Designer Handbag", price: 459,
+      img: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80",
+      imgAlt1: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=800&q=80",
+      imgAlt2: "https://images.unsplash.com/photo-1591561954557-26941169b49e?auto=format&fit=crop&w=800&q=80",
+      imgAlt3: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80&sat=-40",
+      badge: "NEW", rating: 4.8, reviewsCount: 143,
+      description: "Elevate your style with our Designer Handbag. Crafted from premium Italian leather with gold-tone hardware. Features spacious interior with multiple compartments, detachable shoulder strap, and secure zip closure. A versatile accessory that complements any outfit.",
+      colors: ["#1a1a1a", "#8b4513", "#800020", "#2c3e50"],
+      sizes: ["One Size"],
+      features: [
+        { icon: "🚚", title: "Free Shipping", desc: "All over KSA" },
+        { icon: "↩️", title: "Easy Returns", desc: "14 days" },
+        { icon: "🛡️", title: "Warranty", desc: "2 years" }
+      ],
+      reviews: [
+        { name: "Dana Al-Harbi", date: "3 days ago", rating: 5, text: "Amazing quality leather! Very spacious and stylish. Love the gold hardware." },
+        { name: "Haya Al-Zahrani", date: "1 week ago", rating: 5, text: "Designer quality at reasonable price. Bohot pyara bag hai!" },
+        { name: "Maha Al-Dosari", date: "2 weeks ago", rating: 5, text: "Perfect size for daily use. Very durable and elegant." },
+        { name: "Jawaher Al-Ghamdi", date: "3 weeks ago", rating: 4, text: "Beautiful bag, slightly heavy but excellent quality." }
+      ]
+    },
+    {
+      name: "Cashmere Scarf", price: 179, oldPrice: 229,
+      img: "https://images.unsplash.com/photo-1601924994987-69e26d50dc26?auto=format&fit=crop&w=800&q=80",
+      imgAlt1: "https://images.unsplash.com/photo-1520903920243-00d872a2d1c9?auto=format&fit=crop&w=800&q=80",
+      imgAlt2: "https://images.unsplash.com/photo-1601924994987-69e26d50dc26?auto=format&fit=crop&w=800&q=80&sat=-50",
+      imgAlt3: "https://images.unsplash.com/photo-1584030373081-f37b7bb4fa8e?auto=format&fit=crop&w=800&q=80",
+      badge: "HOT", rating: 4.7, reviewsCount: 96,
+      description: "Wrap yourself in luxury with our 100% pure Cashmere Scarf. Sourced from the finest cashmere fibers, this scarf offers exceptional warmth without bulk. Features a classic design with fringed edges. Perfect for chilly evenings.",
+      colors: ["#c4a484", "#8b4513", "#556b2f", "#8b0000", "#4a0e4e"],
+      sizes: ["One Size"],
+      features: [
+        { icon: "🚚", title: "Free Shipping", desc: "All over KSA" },
+        { icon: "↩️", title: "Easy Returns", desc: "14 days" },
+        { icon: "🛡️", title: "Warranty", desc: "1 year" }
+      ],
+      reviews: [
+        { name: "Abeer Al-Shammari", date: "4 days ago", rating: 5, text: "So soft and warm! Genuine cashmere. Absolutely love it." },
+        { name: "Muneera Al-Rashid", date: "1 week ago", rating: 5, text: "Best scarf I've ever owned. Premium quality!" },
+        { name: "Razan Al-Mutairi", date: "2 weeks ago", rating: 5, text: "Bohot soft hai aur warm bhi. Winter ke liye perfect." }
+      ]
+    },
+    {
+      name: "Silk Blouse", price: 219,
+      img: "https://images.unsplash.com/photo-1564257577017-1de1a1f6f2c6?auto=format&fit=crop&w=800&q=80",
+      imgAlt1: "https://images.unsplash.com/photo-1564257631407-4deb1f99d992?auto=format&fit=crop&w=800&q=80",
+      imgAlt2: "https://images.unsplash.com/photo-1564257577017-1de1a1f6f2c6?auto=format&fit=crop&w=800&q=80&sat=-40",
+      imgAlt3: "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=800&q=80",
+      badge: "NEW", rating: 4.6, reviewsCount: 74,
+      description: "Add a touch of elegance to your wardrobe with our Silk Blouse. Made from 100% pure mulberry silk with a subtle sheen. Features a relaxed fit, delicate buttons, and French seams. Perfect for both office and evening wear.",
+      colors: ["#f5f5dc", "#ffb6c1", "#000080", "#ffffff"],
+      sizes: ["XS", "S", "M", "L", "XL"],
+      features: [
+        { icon: "🚚", title: "Free Shipping", desc: "All over KSA" },
+        { icon: "↩️", title: "Easy Returns", desc: "14 days" },
+        { icon: "🛡️", title: "Warranty", desc: "1 year" }
+      ],
+      reviews: [
+        { name: "Ghalia Al-Otaibi", date: "1 week ago", rating: 5, text: "Beautiful silk blouse! So elegant and comfortable. Perfect for office." },
+        { name: "Wafa Al-Harbi", date: "2 weeks ago", rating: 5, text: "Very premium quality silk. Colour is beautiful." },
+        { name: "Amal Al-Saud", date: "3 weeks ago", rating: 4, text: "Gorgeous blouse, but needs careful washing." }
+      ]
+    },
+    {
+      name: "High Heel Sandals", price: 289, oldPrice: 399,
+      img: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=800&q=80",
+      imgAlt1: "https://images.unsplash.com/photo-1518049362265-d5b2a6b00b37?auto=format&fit=crop&w=800&q=80",
+      imgAlt2: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=800&q=80&sat=-40",
+      imgAlt3: "https://images.unsplash.com/photo-1596703263926-eb0762ee17e4?auto=format&fit=crop&w=800&q=80",
+      badge: "SALE", rating: 4.8, reviewsCount: 132,
+      description: "Step into elegance with our High Heel Sandals. Crafted from premium leather with a comfortable cushioned footbed. Features a 3.5-inch heel height that's perfect for all-day wear. The adjustable ankle strap ensures a secure fit.",
+      colors: ["#1a1a1a", "#8b4513", "#ffd700", "#c0c0c0"],
+      sizes: ["36", "37", "38", "39", "40", "41"],
+      features: [
+        { icon: "🚚", title: "Free Shipping", desc: "All over KSA" },
+        { icon: "↩️", title: "Easy Returns", desc: "14 days" },
+        { icon: "🛡️", title: "Warranty", desc: "1 year" }
+      ],
+      reviews: [
+        { name: "Latifa Al-Zahrani", date: "2 days ago", rating: 5, text: "Super comfortable heels! Wore them all day without any pain. Love them." },
+        { name: "Hessa Al-Mutairi", date: "1 week ago", rating: 5, text: "Beautiful sandals! Very elegant and comfortable." },
+        { name: "Shaikha Al-Rashid", date: "2 weeks ago", rating: 5, text: "Perfect heels for weddings and parties. Highly recommended!" },
+        { name: "Bashayer Al-Dosari", date: "3 weeks ago", rating: 4, text: "Gorgeous shoes. Runs slightly small, order half size up." }
+      ]
+    }
   ],
   electronics: [
-    { name: "iPhone 15 Pro Max", price: 4999, oldPrice: 5499, img: "https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?auto=format&fit=crop&w=600&q=80", badge: "HOT" },
-    { name: "AirPods Pro Max", price: 1299, img: "https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?auto=format&fit=crop&w=600&q=80", badge: "NEW" },
-    { name: "MacBook Pro M3", price: 7999, oldPrice: 8999, img: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=600&q=80", badge: "SALE" },
-    { name: "iPad Pro 12.9", price: 3999, img: "https://images.unsplash.com/photo-1561154464-82e9adf32764?auto=format&fit=crop&w=600&q=80", badge: "NEW" },
-    { name: "Smart Watch Ultra", price: 1799, oldPrice: 2199, img: "https://images.unsplash.com/photo-1544117519-31a4b719223d?auto=format&fit=crop&w=600&q=80", badge: "HOT" }
+    {
+      name: "iPhone 15 Pro Max", price: 4999, oldPrice: 5499,
+      img: "https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?auto=format&fit=crop&w=800&q=80",
+      imgAlt1: "https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=800&q=80",
+      imgAlt2: "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=800&q=80",
+      imgAlt3: "https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?auto=format&fit=crop&w=800&q=80&sat=-40",
+      badge: "HOT", rating: 4.9, reviewsCount: 456,
+      description: "The iPhone 15 Pro Max is Apple's most advanced smartphone featuring the A17 Pro chip, titanium design, and a pro camera system with 48MP main sensor. Experience console-level gaming, professional photography, and all-day battery life.",
+      colors: ["#2f2f2f", "#f5f5dc", "#4a4a4a", "#1e3a5f"],
+      sizes: ["256GB", "512GB", "1TB"],
+      features: [
+        { icon: "🚚", title: "Free Shipping", desc: "All over KSA" },
+        { icon: "↩️", title: "Easy Returns", desc: "14 days" },
+        { icon: "🛡️", title: "Warranty", desc: "1 year Apple" }
+      ],
+      reviews: [
+        { name: "Ahmed Al-Saud", date: "1 day ago", rating: 5, text: "Amazing phone! Camera quality is unbelievable. Titanium build feels premium." },
+        { name: "Mohammed Al-Rashid", date: "3 days ago", rating: 5, text: "Best iPhone ever! Battery life is incredible." },
+        { name: "Khalid Al-Mutairi", date: "5 days ago", rating: 5, text: "iPhone 15 Pro Max bahut acha hai. Camera aur performance dono top class." },
+        { name: "Faisal Al-Otaibi", date: "1 week ago", rating: 5, text: "Worth every riyal! Apple outdid themselves with this one." },
+        { name: "Turki Al-Harbi", date: "2 weeks ago", rating: 4, text: "Excellent phone but expensive. Still, best in the market." }
+      ]
+    },
+    {
+      name: "AirPods Pro Max", price: 1299,
+      img: "https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?auto=format&fit=crop&w=800&q=80",
+      imgAlt1: "https://images.unsplash.com/photo-1606400082777-ef05f3c5cde2?auto=format&fit=crop&w=800&q=80",
+      imgAlt2: "https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?auto=format&fit=crop&w=800&q=80&sat=-40",
+      imgAlt3: "https://images.unsplash.com/photo-1610438235354-a6ae5528385c?auto=format&fit=crop&w=800&q=80",
+      badge: "NEW", rating: 4.8, reviewsCount: 289,
+      description: "Experience premium sound with AirPods Pro Max. Features active noise cancellation, spatial audio, and 20-hour battery life. The memory foam ear cushions provide exceptional comfort for extended listening.",
+      colors: ["#c0c0c0", "#4a4a4a", "#1a1a1a"],
+      sizes: ["One Size"],
+      features: [
+        { icon: "🚚", title: "Free Shipping", desc: "All over KSA" },
+        { icon: "↩️", title: "Easy Returns", desc: "14 days" },
+        { icon: "🛡️", title: "Warranty", desc: "1 year Apple" }
+      ],
+      reviews: [
+        { name: "Bandar Al-Harbi", date: "2 days ago", rating: 5, text: "Sound quality is exceptional! Noise cancellation is amazing." },
+        { name: "Majed Al-Zahrani", date: "1 week ago", rating: 5, text: "Best headphones I've owned. Very comfortable for long use." },
+        { name: "Nawaf Al-Dosari", date: "2 weeks ago", rating: 5, text: "Premium sound, premium quality. Worth it!" },
+        { name: "Sultan Al-Ghamdi", date: "3 weeks ago", rating: 4, text: "Excellent headphones but expensive. Still highly recommended." }
+      ]
+    },
+    {
+      name: "MacBook Pro M3", price: 7999, oldPrice: 8999,
+      img: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=800&q=80",
+      imgAlt1: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=800&q=80",
+      imgAlt2: "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?auto=format&fit=crop&w=800&q=80",
+      imgAlt3: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=800&q=80&sat=-50",
+      badge: "SALE", rating: 4.9, reviewsCount: 312,
+      description: "The MacBook Pro with M3 chip delivers incredible performance for professionals. Features a stunning Liquid Retina XDR display, up to 22 hours battery life, and advanced thermal system. Perfect for video editing, 3D rendering, and software development.",
+      colors: ["#2f2f2f", "#c0c0c0"],
+      sizes: ["14 inch", "16 inch"],
+      features: [
+        { icon: "🚚", title: "Free Shipping", desc: "All over KSA" },
+        { icon: "↩️", title: "Easy Returns", desc: "14 days" },
+        { icon: "🛡️", title: "Warranty", desc: "1 year Apple" }
+      ],
+      reviews: [
+        { name: "Fahad Al-Rashid", date: "3 days ago", rating: 5, text: "Insane performance! Handles 4K video editing without breaking a sweat." },
+        { name: "Saud Al-Mansour", date: "1 week ago", rating: 5, text: "Best laptop I've ever used. Battery life is phenomenal." },
+        { name: "Mishal Al-Sabah", date: "2 weeks ago", rating: 5, text: "M3 chip is a beast. Perfect for developers and designers." }
+      ]
+    },
+    {
+      name: "iPad Pro 12.9", price: 3999,
+      img: "https://images.unsplash.com/photo-1561154464-82e9adf32764?auto=format&fit=crop&w=800&q=80",
+      imgAlt1: "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=800&q=80",
+      imgAlt2: "https://images.unsplash.com/photo-1585790050230-5dd28404ccb9?auto=format&fit=crop&w=800&q=80",
+      imgAlt3: "https://images.unsplash.com/photo-1561154464-82e9adf32764?auto=format&fit=crop&w=800&q=80&sat=-40",
+      badge: "NEW", rating: 4.7, reviewsCount: 198,
+      description: "The iPad Pro 12.9 with M2 chip is a powerhouse tablet that rivals laptops. Features Liquid Retina XDR display, Thunderbolt port, and Apple Pencil hover. Perfect for creative professionals, students, and entertainment.",
+      colors: ["#4a4a4a", "#c0c0c0"],
+      sizes: ["128GB", "256GB", "512GB"],
+      features: [
+        { icon: "🚚", title: "Free Shipping", desc: "All over KSA" },
+        { icon: "↩️", title: "Easy Returns", desc: "14 days" },
+        { icon: "🛡️", title: "Warranty", desc: "1 year Apple" }
+      ],
+      reviews: [
+        { name: "Rakan Al-Harbi", date: "4 days ago", rating: 5, text: "Perfect tablet for drawing and design work. Display is stunning!" },
+        { name: "Yazeed Al-Anazi", date: "1 week ago", rating: 5, text: "Best iPad ever. Very powerful and versatile." },
+        { name: "Ziyad Al-Shamrani", date: "2 weeks ago", rating: 4, text: "Excellent tablet but expensive. Still worth it for professionals." }
+      ]
+    },
+    {
+      name: "Smart Watch Ultra", price: 1799, oldPrice: 2199,
+      img: "https://images.unsplash.com/photo-1544117519-31a4b719223d?auto=format&fit=crop&w=800&q=80",
+      imgAlt1: "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?auto=format&fit=crop&w=800&q=80",
+      imgAlt2: "https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=800&q=80",
+      imgAlt3: "https://images.unsplash.com/photo-1544117519-31a4b719223d?auto=format&fit=crop&w=800&q=80&sat=-40",
+      badge: "HOT", rating: 4.8, reviewsCount: 245,
+      description: "The Smart Watch Ultra is built for adventure with a rugged titanium case, precision GPS, and 36-hour battery life. Features advanced health monitoring, dive computer capabilities, and a bright always-on Retina display.",
+      colors: ["#2f2f2f", "#c0c0c0", "#d4a574"],
+      sizes: ["49mm"],
+      features: [
+        { icon: "🚚", title: "Free Shipping", desc: "All over KSA" },
+        { icon: "↩️", title: "Easy Returns", desc: "14 days" },
+        { icon: "🛡️", title: "Warranty", desc: "1 year Apple" }
+      ],
+      reviews: [
+        { name: "Abdullah Nasser", date: "2 days ago", rating: 5, text: "Amazing watch! The titanium build is premium and rugged." },
+        { name: "Hassan Al-Amri", date: "1 week ago", rating: 5, text: "Perfect for fitness tracking and outdoor activities." },
+        { name: "Ibrahim Al-Juhani", date: "2 weeks ago", rating: 5, text: "Best smartwatch for athletes. Battery life is great!" },
+        { name: "Rayan Al-Malki", date: "3 weeks ago", rating: 4, text: "Excellent watch but slightly bulky for daily wear." }
+      ]
+    }
   ],
   home: [
-    { name: "Luxury Sofa Set", price: 3999, oldPrice: 4999, img: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=600&q=80", badge: "SALE" },
-    { name: "Modern Table Lamp", price: 249, img: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=600&q=80", badge: "NEW" },
-    { name: "Persian Carpet", price: 1899, oldPrice: 2299, img: "https://images.unsplash.com/photo-1600166898405-da9535204843?auto=format&fit=crop&w=600&q=80", badge: "HOT" },
-    { name: "Decorative Vase", price: 179, img: "https://images.unsplash.com/photo-1578500494198-246f612d3b3d?auto=format&fit=crop&w=600&q=80", badge: "NEW" }
+    {
+      name: "Luxury Sofa Set", price: 3999, oldPrice: 4999,
+      img: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80",
+      imgAlt1: "https://images.unsplash.com/photo-1567016432779-094069958ea5?auto=format&fit=crop&w=800&q=80",
+      imgAlt2: "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=800&q=80",
+      imgAlt3: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80&sat=-40",
+      badge: "SALE", rating: 4.8, reviewsCount: 87,
+      description: "Transform your living room with our Luxury Sofa Set. Crafted with premium Italian leather and hardwood frame. Features plush cushioning, reclining mechanism, and elegant design. Perfect for family gatherings and entertaining guests.",
+      colors: ["#3d2b1f", "#1a1a1a", "#8b4513", "#2c3e50"],
+      sizes: ["3+2+1 Set", "L-Shape"],
+      features: [
+        { icon: "🚚", title: "Free Delivery", desc: "Within 7 days" },
+        { icon: "↩️", title: "Easy Returns", desc: "14 days" },
+        { icon: "🛡️", title: "Warranty", desc: "5 years" }
+      ],
+      reviews: [
+        { name: "Fahad Al-Rashid", date: "1 week ago", rating: 5, text: "Amazing sofa set! Very comfortable and luxurious. Delivery was on time." },
+        { name: "Saud Al-Mansour", date: "2 weeks ago", rating: 5, text: "Premium leather quality. The whole family loves it!" },
+        { name: "Mishal Al-Sabah", date: "3 weeks ago", rating: 4, text: "Excellent sofa, very comfortable. Assembly took some time." }
+      ]
+    },
+    {
+      name: "Modern Table Lamp", price: 249,
+      img: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=800&q=80",
+      imgAlt1: "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=800&q=80",
+      imgAlt2: "https://images.unsplash.com/photo-1543198126-a8ad8e47fb22?auto=format&fit=crop&w=800&q=80",
+      imgAlt3: "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=800&q=80&sat=-40",
+      badge: "NEW", rating: 4.6, reviewsCount: 124,
+      description: "Add elegance to your space with our Modern Table Lamp. Features a sleek brass base with a handmade fabric shade. Dimmable LED bulb included. Perfect for bedside tables, reading nooks, or home offices.",
+      colors: ["#d4a574", "#c0c0c0", "#1a1a1a"],
+      sizes: ["One Size"],
+      features: [
+        { icon: "🚚", title: "Free Shipping", desc: "All over KSA" },
+        { icon: "↩️", title: "Easy Returns", desc: "14 days" },
+        { icon: "🛡️", title: "Warranty", desc: "2 years" }
+      ],
+      reviews: [
+        { name: "Ghalia Al-Otaibi", date: "3 days ago", rating: 5, text: "Beautiful lamp! Adds so much elegance to my bedroom." },
+        { name: "Wafa Al-Harbi", date: "1 week ago", rating: 5, text: "Very nice design. Quality is excellent." },
+        { name: "Amal Al-Saud", date: "2 weeks ago", rating: 4, text: "Pretty lamp, bulb included was a nice bonus." }
+      ]
+    },
+    {
+      name: "Persian Carpet", price: 1899, oldPrice: 2299,
+      img: "https://images.unsplash.com/photo-1600166898405-da9535204843?auto=format&fit=crop&w=800&q=80",
+      imgAlt1: "https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=800&q=80",
+      imgAlt2: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=800&q=80",
+      imgAlt3: "https://images.unsplash.com/photo-1600166898405-da9535204843?auto=format&fit=crop&w=800&q=80&sat=-50",
+      badge: "HOT", rating: 4.9, reviewsCount: 156,
+      description: "Bring timeless elegance to your home with our handwoven Persian Carpet. Made from premium wool and silk blend, each carpet takes months to create. Features intricate traditional patterns and rich colors. A true heirloom piece.",
+      colors: ["#8b0000", "#191970", "#556b2f"],
+      sizes: ["2x3m", "2.5x3.5m", "3x4m"],
+      features: [
+        { icon: "🚚", title: "Free Delivery", desc: "Within 7 days" },
+        { icon: "↩️", title: "Easy Returns", desc: "14 days" },
+        { icon: "🛡️", title: "Warranty", desc: "10 years" }
+      ],
+      reviews: [
+        { name: "Noura Al-Rashid", date: "4 days ago", rating: 5, text: "Absolutely stunning carpet! Handwoven quality is evident." },
+        { name: "Sara Al-Mutairi", date: "2 weeks ago", rating: 5, text: "Beautiful Persian carpet. Colors are vibrant and rich." },
+        { name: "Reem Al-Saud", date: "1 month ago", rating: 5, text: "Investment piece! Worth every riyal." }
+      ]
+    },
+    {
+      name: "Decorative Vase", price: 179,
+      img: "https://images.unsplash.com/photo-1578500494198-246f612d3b3d?auto=format&fit=crop&w=800&q=80",
+      imgAlt1: "https://images.unsplash.com/photo-1612196808214-b8e1d6145a8c?auto=format&fit=crop&w=800&q=80",
+      imgAlt2: "https://images.unsplash.com/photo-1493106819501-66d381c466f1?auto=format&fit=crop&w=800&q=80",
+      imgAlt3: "https://images.unsplash.com/photo-1578500494198-246f612d3b3d?auto=format&fit=crop&w=800&q=80&sat=-40",
+      badge: "NEW", rating: 4.5, reviewsCount: 78,
+      description: "Add a touch of artistry to your home with our Decorative Vase. Handcrafted from premium ceramic with a unique matte finish. Perfect for fresh flowers, dried arrangements, or as a standalone piece.",
+      colors: ["#ffffff", "#f5f5dc", "#2c3e50", "#8b4513"],
+      sizes: ["Small", "Medium", "Large"],
+      features: [
+        { icon: "🚚", title: "Free Shipping", desc: "All over KSA" },
+        { icon: "↩️", title: "Easy Returns", desc: "14 days" },
+        { icon: "🛡️", title: "Warranty", desc: "1 year" }
+      ],
+      reviews: [
+        { name: "Dana Al-Harbi", date: "1 week ago", rating: 5, text: "Beautiful vase! Very elegant and well made." },
+        { name: "Haya Al-Zahrani", date: "2 weeks ago", rating: 5, text: "Perfect for my living room. Quality is great!" },
+        { name: "Maha Al-Dosari", date: "3 weeks ago", rating: 4, text: "Nice vase, smaller than expected but beautiful." }
+      ]
+    }
   ],
   beauty: [
-    { name: "Luxury French Perfume", price: 229, oldPrice: 369, img: "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=600&q=80", badge: "HOT" },
-    { name: "Premium Skincare Set", price: 399, img: "https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=600&q=80", badge: "NEW" },
-    { name: "Matte Lipstick Set", price: 149, oldPrice: 199, img: "https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=600&q=80", badge: "SALE" },
-    { name: "Luxury Makeup Kit", price: 549, img: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=600&q=80", badge: "NEW" }
+    {
+      name: "Luxury French Perfume", price: 229, oldPrice: 369,
+      img: "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=800&q=80",
+      imgAlt1: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=800&q=80",
+      imgAlt2: "https://images.unsplash.com/photo-1587017539504-67cfbddac569?auto=format&fit=crop&w=800&q=80",
+      imgAlt3: "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=800&q=80&sat=-40",
+      badge: "HOT", rating: 4.9, reviewsCount: 267,
+      description: "Indulge in the luxurious scent of our French Perfume. Crafted in Grasse, France, by master perfumers. Features notes of jasmine, rose, and sandalwood for a sophisticated fragrance that lasts all day.",
+      colors: ["#f5f5dc", "#ffd700"],
+      sizes: ["50ml", "100ml"],
+      features: [
+        { icon: "🚚", title: "Free Shipping", desc: "All over KSA" },
+        { icon: "↩️", title: "Easy Returns", desc: "14 days" },
+        { icon: "🛡️", title: "Authentic", desc: "100% Original" }
+      ],
+      reviews: [
+        { name: "Layla Al-Rashid", date: "1 day ago", rating: 5, text: "Divine fragrance! Lasts all day. Gets so many compliments." },
+        { name: "Noura Al-Mutairi", date: "3 days ago", rating: 5, text: "Best perfume I've ever owned. Luxury in a bottle!" },
+        { name: "Sara Al-Saud", date: "1 week ago", rating: 5, text: "Khubsoorat khushbu! Bohot premium lagti hai." },
+        { name: "Reem Al-Otaibi", date: "2 weeks ago", rating: 5, text: "Authentic French perfume. Worth every riyal." }
+      ]
+    },
+    {
+      name: "Premium Skincare Set", price: 399,
+      img: "https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=800&q=80",
+      imgAlt1: "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=800&q=80",
+      imgAlt2: "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=800&q=80",
+      imgAlt3: "https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=800&q=80&sat=-40",
+      badge: "NEW", rating: 4.8, reviewsCount: 198,
+      description: "Transform your skincare routine with our Premium Skincare Set. Includes cleanser, toner, serum, moisturizer, and eye cream. Made with natural ingredients like hyaluronic acid, vitamin C, and retinol.",
+      colors: ["#ffffff"],
+      sizes: ["5-Piece Set"],
+      features: [
+        { icon: "🚚", title: "Free Shipping", desc: "All over KSA" },
+        { icon: "↩️", title: "Easy Returns", desc: "14 days" },
+        { icon: "🛡️", title: "Dermatologist", desc: "Tested" }
+      ],
+      reviews: [
+        { name: "Hessa Al-Mutairi", date: "2 days ago", rating: 5, text: "Amazing skincare set! My skin has never looked better." },
+        { name: "Shaikha Al-Rashid", date: "1 week ago", rating: 5, text: "Premium quality products. Visible results in 2 weeks!" },
+        { name: "Bashayer Al-Dosari", date: "2 weeks ago", rating: 5, text: "Best skincare investment. Highly recommended!" },
+        { name: "Jawaher Al-Ghamdi", date: "3 weeks ago", rating: 4, text: "Great set, but wish the serum was bigger." }
+      ]
+    },
+    {
+      name: "Matte Lipstick Set", price: 149, oldPrice: 199,
+      img: "https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=800&q=80",
+      imgAlt1: "https://images.unsplash.com/photo-1631214524020-7e18db9a8f92?auto=format&fit=crop&w=800&q=80",
+      imgAlt2: "https://images.unsplash.com/photo-1596704017254-9b121068fb31?auto=format&fit=crop&w=800&q=80",
+      imgAlt3: "https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=800&q=80&sat=-40",
+      badge: "SALE", rating: 4.7, reviewsCount: 234,
+      description: "Get the perfect pout with our Matte Lipstick Set. Includes 6 highly pigmented shades from nude to bold red. Long-lasting formula that stays put for hours. Enriched with vitamin E and shea butter.",
+      colors: ["#8b0000", "#c71585", "#dc143c", "#ff69b4", "#a0522d", "#800020"],
+      sizes: ["6-Piece Set"],
+      features: [
+        { icon: "🚚", title: "Free Shipping", desc: "All over KSA" },
+        { icon: "↩️", title: "Easy Returns", desc: "14 days" },
+        { icon: "🐰", title: "Cruelty Free", desc: "Vegan" }
+      ],
+      reviews: [
+        { name: "Latifa Al-Zahrani", date: "3 days ago", rating: 5, text: "Beautiful shades! Long lasting and comfortable." },
+        { name: "Muneera Al-Rashid", date: "1 week ago", rating: 5, text: "Best matte lipsticks I've tried. Bohot acha hai!" },
+        { name: "Razan Al-Mutairi", date: "2 weeks ago", rating: 4, text: "Lovely colors, slight drying but manageable." }
+      ]
+    },
+    {
+      name: "Luxury Makeup Kit", price: 549,
+      img: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=80",
+      imgAlt1: "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=800&q=80",
+      imgAlt2: "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=800&q=80",
+      imgAlt3: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=80&sat=-40",
+      badge: "NEW", rating: 4.9, reviewsCount: 167,
+      description: "Professional-grade makeup kit with everything you need for a flawless look. Includes foundation, concealer, blush, eyeshadow palette, mascara, eyeliner, and lip gloss. Comes in an elegant travel case.",
+      colors: ["#f5deb3", "#d2b48c", "#8b4513"],
+      sizes: ["Complete Kit"],
+      features: [
+        { icon: "🚚", title: "Free Shipping", desc: "All over KSA" },
+        { icon: "↩️", title: "Easy Returns", desc: "14 days" },
+        { icon: "✨", title: "Professional", desc: "Grade Quality" }
+      ],
+      reviews: [
+        { name: "Abeer Al-Shammari", date: "1 day ago", rating: 5, text: "Amazing makeup kit! Everything I need in one case." },
+        { name: "Ghalia Al-Otaibi", date: "1 week ago", rating: 5, text: "Professional quality. Love every product in the kit!" },
+        { name: "Wafa Al-Harbi", date: "2 weeks ago", rating: 5, text: "Best makeup kit ever! Worth every riyal." }
+      ]
+    }
   ],
   sports: [
-    { name: "Nike Air Max 270", price: 449, oldPrice: 599, img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80", badge: "SALE" },
-    { name: "Adidas Ultraboost", price: 549, img: "https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=600&q=80", badge: "NEW" },
-    { name: "Yoga Mat Premium", price: 129, oldPrice: 169, img: "https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?auto=format&fit=crop&w=600&q=80", badge: "HOT" },
-    { name: "Dumbbell Set 20kg", price: 349, img: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=600&q=80", badge: "NEW" }
+    {
+      name: "Nike Air Max 270", price: 449, oldPrice: 599,
+      img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80",
+      imgAlt1: "https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=800&q=80",
+      imgAlt2: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=800&q=80",
+      imgAlt3: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80&sat=-40",
+      badge: "SALE", rating: 4.8, reviewsCount: 312,
+      description: "Experience ultimate comfort with Nike Air Max 270. Features the largest Air unit yet for all-day cushioning. Breathable mesh upper keeps your feet cool. Perfect for running, gym, or casual wear.",
+      colors: ["#1a1a1a", "#ffffff", "#ff0000", "#1e3a5f"],
+      sizes: ["40", "41", "42", "43", "44", "45"],
+      features: [
+        { icon: "🚚", title: "Free Shipping", desc: "All over KSA" },
+        { icon: "↩️", title: "Easy Returns", desc: "14 days" },
+        { icon: "🛡️", title: "Authentic", desc: "100% Original" }
+      ],
+      reviews: [
+        { name: "Fahad Al-Rashid", date: "2 days ago", rating: 5, text: "Super comfortable! Best running shoes I've owned." },
+        { name: "Saud Al-Mansour", date: "1 week ago", rating: 5, text: "Amazing cushioning. Perfect for daily wear." },
+        { name: "Mishal Al-Sabah", date: "2 weeks ago", rating: 5, text: "Original Nike! Very comfortable and stylish." },
+        { name: "Abdulaziz Al-Faisal", date: "3 weeks ago", rating: 4, text: "Great shoes, runs slightly big. Order half size down." }
+      ]
+    },
+    {
+      name: "Adidas Ultraboost", price: 549,
+      img: "https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=800&q=80",
+      imgAlt1: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=800&q=80",
+      imgAlt2: "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=800&q=80",
+      imgAlt3: "https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=800&q=80&sat=-40",
+      badge: "NEW", rating: 4.9, reviewsCount: 289,
+      description: "The Adidas Ultraboost delivers incredible energy return with every step. Features Primeknit+ upper for adaptive fit, Boost midsole for responsive cushioning, and Continental rubber outsole for superior grip.",
+      colors: ["#1a1a1a", "#ffffff", "#1e3a5f"],
+      sizes: ["40", "41", "42", "43", "44", "45", "46"],
+      features: [
+        { icon: "🚚", title: "Free Shipping", desc: "All over KSA" },
+        { icon: "↩️", title: "Easy Returns", desc: "14 days" },
+        { icon: "🛡️", title: "Authentic", desc: "100% Original" }
+      ],
+      reviews: [
+        { name: "Waleed Al-Ahmad", date: "3 days ago", rating: 5, text: "Best running shoes! Incredible energy return." },
+        { name: "Yazeed Al-Anazi", date: "1 week ago", rating: 5, text: "Adidas Ultraboost is unmatched. Worth every riyal!" },
+        { name: "Ziyad Al-Shamrani", date: "2 weeks ago", rating: 5, text: "Super comfortable and stylish. Highly recommended." }
+      ]
+    },
+    {
+      name: "Yoga Mat Premium", price: 129, oldPrice: 169,
+      img: "https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?auto=format&fit=crop&w=800&q=80",
+      imgAlt1: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80",
+      imgAlt2: "https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?auto=format&fit=crop&w=800&q=80",
+      imgAlt3: "https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?auto=format&fit=crop&w=800&q=80&sat=-40",
+      badge: "HOT", rating: 4.6, reviewsCount: 156,
+      description: "Elevate your yoga practice with our Premium Yoga Mat. Made from eco-friendly TPE material with non-slip texture. Extra thick 6mm cushioning for joint protection. Includes carrying strap.",
+      colors: ["#800080", "#556b2f", "#1a1a1a", "#ff69b4"],
+      sizes: ["183 x 61 cm"],
+      features: [
+        { icon: "🚚", title: "Free Shipping", desc: "All over KSA" },
+        { icon: "↩️", title: "Easy Returns", desc: "14 days" },
+        { icon: "🌿", title: "Eco-Friendly", desc: "Non-Toxic" }
+      ],
+      reviews: [
+        { name: "Hassan Al-Amri", date: "1 week ago", rating: 5, text: "Great yoga mat! Non-slip and comfortable." },
+        { name: "Ibrahim Al-Juhani", date: "2 weeks ago", rating: 5, text: "Perfect thickness. Love the eco-friendly material." },
+        { name: "Rayan Al-Malki", date: "3 weeks ago", rating: 4, text: "Good quality mat. Slightly heavy but worth it." }
+      ]
+    },
+    {
+      name: "Dumbbell Set 20kg", price: 349,
+      img: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&q=80",
+      imgAlt1: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80",
+      imgAlt2: "https://images.unsplash.com/photo-1591940765265-6bd7cbdaa0d0?auto=format&fit=crop&w=800&q=80",
+      imgAlt3: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&q=80&sat=-40",
+      badge: "NEW", rating: 4.7, reviewsCount: 98,
+      description: "Build your home gym with our 20kg Dumbbell Set. Features adjustable weight plates with chrome finish. Includes two dumbbell bars, 4x2.5kg plates, 4x1.25kg plates, and safety locks.",
+      colors: ["#c0c0c0", "#1a1a1a"],
+      sizes: ["20 kg Set"],
+      features: [
+        { icon: "🚚", title: "Free Shipping", desc: "All over KSA" },
+        { icon: "↩️", title: "Easy Returns", desc: "14 days" },
+        { icon: "🛡️", title: "Warranty", desc: "2 years" }
+      ],
+      reviews: [
+        { name: "Turki Al-Harbi", date: "4 days ago", rating: 5, text: "Excellent quality dumbbells! Perfect for home workouts." },
+        { name: "Rakan Al-Harbi", date: "2 weeks ago", rating: 5, text: "Solid build quality. Great value for money." },
+        { name: "Yazeed Al-Anazi", date: "1 month ago", rating: 4, text: "Good set, plates could be better finished." }
+      ]
+    }
   ],
   kids: [
-    { name: "Baby Stroller Premium", price: 1299, oldPrice: 1699, img: "https://images.unsplash.com/photo-1591088398332-8a7791972843?auto=format&fit=crop&w=600&q=80", badge: "SALE" },
-    { name: "Kids Toy Set", price: 149, img: "https://images.unsplash.com/photo-1558060370-d644479cb6f7?auto=format&fit=crop&w=600&q=80", badge: "NEW" },
-    { name: "Baby Clothes Bundle", price: 199, oldPrice: 249, img: "https://images.unsplash.com/photo-1522771930-78848d9293e8?auto=format&fit=crop&w=600&q=80", badge: "HOT" },
-    { name: "Teddy Bear Large", price: 99, img: "https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=600&q=80", badge: "NEW" }
+    {
+      name: "Baby Stroller Premium", price: 1299, oldPrice: 1699,
+      img: "https://images.unsplash.com/photo-1591088398332-8a7791972843?auto=format&fit=crop&w=800&q=80",
+      imgAlt1: "https://images.unsplash.com/photo-1566004100631-35d015d6a491?auto=format&fit=crop&w=800&q=80",
+      imgAlt2: "https://images.unsplash.com/photo-1586882501604-2a4a0b8e5c8e?auto=format&fit=crop&w=800&q=80",
+      imgAlt3: "https://images.unsplash.com/photo-1591088398332-8a7791972843?auto=format&fit=crop&w=800&q=80&sat=-40",
+      badge: "SALE", rating: 4.8, reviewsCount: 145,
+      description: "Give your baby the best with our Premium Baby Stroller. Features a reversible seat, adjustable handlebar, and large storage basket. The shock-absorbing wheels ensure a smooth ride.",
+      colors: ["#1a1a1a", "#808080", "#800020", "#1e3a5f"],
+      sizes: ["One Size"],
+      features: [
+        { icon: "🚚", title: "Free Delivery", desc: "Within 3 days" },
+        { icon: "↩️", title: "Easy Returns", desc: "14 days" },
+        { icon: "🛡️", title: "Warranty", desc: "2 years" }
+      ],
+      reviews: [
+        { name: "Sara Al-Rashid", date: "2 days ago", rating: 5, text: "Excellent stroller! Very smooth and easy to use." },
+        { name: "Noura Al-Mutairi", date: "1 week ago", rating: 5, text: "Premium quality! Baby loves it. Best purchase ever." },
+        { name: "Reem Al-Saud", date: "2 weeks ago", rating: 5, text: "Beautiful design and very functional. Highly recommended!" },
+        { name: "Lama Al-Otaibi", date: "3 weeks ago", rating: 4, text: "Great stroller, slightly heavy but very sturdy." }
+      ]
+    },
+    {
+      name: "Kids Toy Set", price: 149,
+      img: "https://images.unsplash.com/photo-1558060370-d644479cb6f7?auto=format&fit=crop&w=800&q=80",
+      imgAlt1: "https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&w=800&q=80",
+      imgAlt2: "https://images.unsplash.com/photo-1545558014-8692077e9b5c?auto=format&fit=crop&w=800&q=80",
+      imgAlt3: "https://images.unsplash.com/photo-1558060370-d644479cb6f7?auto=format&fit=crop&w=800&q=80&sat=-40",
+      badge: "NEW", rating: 4.7, reviewsCount: 189,
+      description: "Spark your child's imagination with our Kids Toy Set. Includes building blocks, puzzles, and educational toys. Made from non-toxic, child-safe materials. Perfect for ages 2-6 years.",
+      colors: ["#ff6b6b", "#4ecdc4", "#ffe66d", "#95e1d3"],
+      sizes: ["50-Piece Set"],
+      features: [
+        { icon: "🚚", title: "Free Shipping", desc: "All over KSA" },
+        { icon: "↩️", title: "Easy Returns", desc: "14 days" },
+        { icon: "🛡️", title: "Safe", desc: "Non-Toxic" }
+      ],
+      reviews: [
+        { name: "Dana Al-Harbi", date: "3 days ago", rating: 5, text: "My kids love this toy set! Great for learning and fun." },
+        { name: "Haya Al-Zahrani", date: "1 week ago", rating: 5, text: "Excellent quality! Safe for kids. Highly recommended." },
+        { name: "Maha Al-Dosari", date: "2 weeks ago", rating: 4, text: "Good toy set, wish it had more blocks." }
+      ]
+    },
+    {
+      name: "Baby Clothes Bundle", price: 199, oldPrice: 249,
+      img: "https://images.unsplash.com/photo-1522771930-78848d9293e8?auto=format&fit=crop&w=800&q=80",
+      imgAlt1: "https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=800&q=80",
+      imgAlt2: "https://images.unsplash.com/photo-1522771930-78848d9293e8?auto=format&fit=crop&w=800&q=80&sat=-40",
+      imgAlt3: "https://images.unsplash.com/photo-1622290291165-d341f193b4d1?auto=format&fit=crop&w=800&q=80",
+      badge: "HOT", rating: 4.8, reviewsCount: 167,
+      description: "Dress your little one in comfort with our Baby Clothes Bundle. Includes 10 pieces of soft cotton clothing - bodysuits, pants, and tops. Made from 100% organic cotton, gentle on baby's skin.",
+      colors: ["#ffffff", "#ffb6c1", "#87ceeb", "#f5deb3"],
+      sizes: ["0-3M", "3-6M", "6-9M", "9-12M"],
+      features: [
+        { icon: "🚚", title: "Free Shipping", desc: "All over KSA" },
+        { icon: "↩️", title: "Easy Returns", desc: "14 days" },
+        { icon: "🌿", title: "Organic", desc: "100% Cotton" }
+      ],
+      reviews: [
+        { name: "Jawaher Al-Ghamdi", date: "1 day ago", rating: 5, text: "Beautiful clothes! Very soft and comfortable for baby." },
+        { name: "Abeer Al-Shammari", date: "1 week ago", rating: 5, text: "Excellent quality bundle. Great value for money!" },
+        { name: "Ghalia Al-Otaibi", date: "2 weeks ago", rating: 5, text: "Baby looks adorable in these outfits. Love them!" }
+      ]
+    },
+    {
+      name: "Teddy Bear Large", price: 99,
+      img: "https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=800&q=80",
+      imgAlt1: "https://images.unsplash.com/photo-1573306581480-3d19e7bc8f5c?auto=format&fit=crop&w=800&q=80",
+      imgAlt2: "https://images.unsplash.com/photo-1562040506-e5d9f5e3e5c5?auto=format&fit=crop&w=800&q=80",
+      imgAlt3: "https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=800&q=80&sat=-40",
+      badge: "NEW", rating: 4.9, reviewsCount: 234,
+      description: "The perfect cuddle buddy for your little one! Our Large Teddy Bear is made from ultra-soft plush material and hypoallergenic filling. Features embroidered eyes and a sweet smile. Height: 90cm.",
+      colors: ["#d2b48c", "#8b4513", "#ffffff"],
+      sizes: ["60cm", "90cm", "120cm"],
+      features: [
+        { icon: "🚚", title: "Free Shipping", desc: "All over KSA" },
+        { icon: "↩️", title: "Easy Returns", desc: "14 days" },
+        { icon: "🛡️", title: "Safe", desc: "Hypoallergenic" }
+      ],
+      reviews: [
+        { name: "Wafa Al-Harbi", date: "2 days ago", rating: 5, text: "Adorable teddy bear! So soft and cuddly. My daughter loves it!" },
+        { name: "Amal Al-Saud", date: "1 week ago", rating: 5, text: "Perfect size and very good quality. Highly recommended!" },
+        { name: "Latifa Al-Zahrani", date: "2 weeks ago", rating: 5, text: "Best teddy bear ever! Super soft and cute." },
+        { name: "Muneera Al-Rashid", date: "3 weeks ago", rating: 5, text: "My son sleeps with it every night. Excellent quality!" }
+      ]
+    }
   ],
   accessories: [
-    { name: "Luxury Leather Backpack", price: 129, oldPrice: 199, img: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80", badge: "SALE" },
-    { name: "Designer Sunglasses", price: 299, img: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=600&q=80", badge: "NEW" },
-    { name: "Gold Chain Necklace", price: 899, oldPrice: 1199, img: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=600&q=80", badge: "HOT" },
-    { name: "Leather Wallet", price: 149, img: "https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=600&q=80", badge: "NEW" },
-    { name: "Classic Wrist Watch", price: 649, oldPrice: 899, img: "https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=600&q=80", badge: "SALE" }
+    {
+      name: "Luxury Leather Backpack", price: 129, oldPrice: 199,
+      img: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=800&q=80",
+      imgAlt1: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=800&q=80",
+      imgAlt2: "https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?auto=format&fit=crop&w=800&q=80",
+      imgAlt3: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=800&q=80&sat=-40",
+      badge: "SALE", rating: 4.8, reviewsCount: 189,
+      description: "Our Luxury Leather Backpack combines style and function. Made from genuine full-grain leather with YKK zippers. Features laptop sleeve (fits up to 15.6\"), multiple compartments, and padded shoulder straps.",
+      colors: ["#3d2b1f", "#1a1a1a", "#8b4513"],
+      sizes: ["One Size"],
+      features: [
+        { icon: "🚚", title: "Free Shipping", desc: "All over KSA" },
+        { icon: "↩️", title: "Easy Returns", desc: "14 days" },
+        { icon: "🛡️", title: "Warranty", desc: "2 years" }
+      ],
+      reviews: [
+        { name: "Fahad Al-Rashid", date: "1 day ago", rating: 5, text: "Excellent leather quality! Very spacious and stylish." },
+        { name: "Saud Al-Mansour", date: "1 week ago", rating: 5, text: "Premium backpack. Best purchase for office use!" },
+        { name: "Mishal Al-Sabah", date: "2 weeks ago", rating: 5, text: "Worth every riyal. Very durable and elegant." },
+        { name: "Abdulaziz Al-Faisal", date: "3 weeks ago", rating: 4, text: "Great backpack, slightly heavy when empty." }
+      ]
+    },
+    {
+      name: "Designer Sunglasses", price: 299,
+      img: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=800&q=80",
+      imgAlt1: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=800&q=80",
+      imgAlt2: "https://images.unsplash.com/photo-1577803645773-f96470509666?auto=format&fit=crop&w=800&q=80",
+      imgAlt3: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=800&q=80&sat=-40",
+      badge: "NEW", rating: 4.7, reviewsCount: 145,
+      description: "Elevate your look with our Designer Sunglasses. Features polarized UV400 lenses that protect against harmful rays. Lightweight acetate frame with metal accents. Comes with premium leather case.",
+      colors: ["#1a1a1a", "#3d2b1f", "#c0c0c0", "#8b4513"],
+      sizes: ["One Size"],
+      features: [
+        { icon: "🚚", title: "Free Shipping", desc: "All over KSA" },
+        { icon: "↩️", title: "Easy Returns", desc: "14 days" },
+        { icon: "🕶️", title: "UV400", desc: "Polarized" }
+      ],
+      reviews: [
+        { name: "Waleed Al-Ahmad", date: "3 days ago", rating: 5, text: "Amazing sunglasses! Very stylish and protective." },
+        { name: "Yazeed Al-Anazi", date: "1 week ago", rating: 5, text: "Designer quality. Love the polarized lenses!" },
+        { name: "Ziyad Al-Shamrani", date: "2 weeks ago", rating: 4, text: "Great sunglasses, comes with nice case." }
+      ]
+    },
+    {
+      name: "Gold Chain Necklace", price: 899, oldPrice: 1199,
+      img: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=800&q=80",
+      imgAlt1: "https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=800&q=80",
+      imgAlt2: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=800&q=80",
+      imgAlt3: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=800&q=80&sat=-40",
+      badge: "HOT", rating: 4.9, reviewsCount: 267,
+      description: "Add elegance to your jewelry collection with our 18K Gold Chain Necklace. Crafted from solid gold with a polished finish. Features a secure lobster clasp and adjustable length. Comes in a luxury gift box.",
+      colors: ["#ffd700", "#ffffff"],
+      sizes: ["45cm", "50cm", "55cm"],
+      features: [
+        { icon: "🚚", title: "Free Shipping", desc: "All over KSA" },
+        { icon: "↩️", title: "Easy Returns", desc: "14 days" },
+        { icon: "✨", title: "18K Gold", desc: "Authentic" }
+      ],
+      reviews: [
+        { name: "Noura Al-Rashid", date: "1 day ago", rating: 5, text: "Absolutely beautiful necklace! Real 18K gold, very elegant." },
+        { name: "Sara Al-Mutairi", date: "1 week ago", rating: 5, text: "Premium quality gold chain. Perfect for everyday wear!" },
+        { name: "Reem Al-Saud", date: "2 weeks ago", rating: 5, text: "Stunning piece! Got so many compliments." },
+        { name: "Lama Al-Otaibi", date: "3 weeks ago", rating: 5, text: "Worth every riyal. Beautiful craftsmanship!" }
+      ]
+    },
+    {
+      name: "Leather Wallet", price: 149,
+      img: "https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=800&q=80",
+      imgAlt1: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=800&q=80",
+      imgAlt2: "https://images.unsplash.com/photo-1601592996763-f05c9c80a7f4?auto=format&fit=crop&w=800&q=80",
+      imgAlt3: "https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=800&q=80&sat=-40",
+      badge: "NEW", rating: 4.6, reviewsCount: 178,
+      description: "Our Leather Wallet combines classic style with modern functionality. Crafted from premium full-grain leather with RFID protection. Features 8 card slots, 2 bill compartments, and a coin pocket. Slim design.",
+      colors: ["#3d2b1f", "#1a1a1a", "#8b4513"],
+      sizes: ["One Size"],
+      features: [
+        { icon: "🚚", title: "Free Shipping", desc: "All over KSA" },
+        { icon: "↩️", title: "Easy Returns", desc: "14 days" },
+        { icon: "🛡️", title: "RFID", desc: "Protected" }
+      ],
+      reviews: [
+        { name: "Hassan Al-Amri", date: "3 days ago", rating: 5, text: "Excellent leather wallet! Very slim and functional." },
+        { name: "Ibrahim Al-Juhani", date: "1 week ago", rating: 5, text: "Premium quality! RFID protection is a great feature." },
+        { name: "Rayan Al-Malki", date: "2 weeks ago", rating: 4, text: "Great wallet, leather is genuine." }
+      ]
+    },
+    {
+      name: "Classic Wrist Watch", price: 649, oldPrice: 899,
+      img: "https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=800&q=80",
+      imgAlt1: "https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?auto=format&fit=crop&w=800&q=80",
+      imgAlt2: "https://images.unsplash.com/photo-1434056886845-dac89ffe9b56?auto=format&fit=crop&w=800&q=80",
+      imgAlt3: "https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=800&q=80&sat=-40",
+      badge: "SALE", rating: 4.8, reviewsCount: 234,
+      description: "Make a statement with our Classic Wrist Watch. Features Swiss quartz movement, sapphire crystal glass, and genuine leather strap. Water-resistant up to 50 meters. Timeless design for any occasion.",
+      colors: ["#1a1a1a", "#8b4513", "#c0c0c0", "#ffd700"],
+      sizes: ["One Size"],
+      features: [
+        { icon: "🚚", title: "Free Shipping", desc: "All over KSA" },
+        { icon: "↩️", title: "Easy Returns", desc: "14 days" },
+        { icon: "🛡️", title: "Warranty", desc: "2 years" }
+      ],
+      reviews: [
+        { name: "Turki Al-Harbi", date: "2 days ago", rating: 5, text: "Stunning watch! Swiss movement is flawless." },
+        { name: "Rakan Al-Harbi", date: "1 week ago", rating: 5, text: "Beautiful timepiece. Very elegant and well-made." },
+        { name: "Yazeed Al-Anazi", date: "2 weeks ago", rating: 5, text: "Premium quality at reasonable price. Love it!" },
+        { name: "Ziyad Al-Shamrani", date: "3 weeks ago", rating: 4, text: "Great watch, strap could be better quality." }
+      ]
+    }
   ]
 };
 
 // ============ STATE ============
-let currentCategory = "all";
 let cart = JSON.parse(localStorage.getItem("rorjan_cart") || "[]");
+let currentProduct = null;
+let selectedQty = 1;
+let viewerState = {
+  rotX: -15,
+  rotY: 20,
+  autoRotate: true,
+  isDragging: false,
+  lastX: 0,
+  lastY: 0
+};
 
 // ============ PARTICLES ============
 function createParticles() {
@@ -684,37 +1727,34 @@ function renderProducts(catId) {
   let items = [];
   
   if (catId === "all") {
-    // Show first 8 from all categories
     Object.keys(allProducts).forEach(k => {
-      items.push(...allProducts[k].slice(0, 2).map(p => ({ ...p, cat: k })));
+      items.push(...allProducts[k].slice(0, 2).map((p, i) => ({ ...p, cat: k, idx: i })));
     });
     document.getElementById('productsTitle').textContent = "Featured Products";
   } else {
-    items = allProducts[catId].map(p => ({ ...p, cat: catId }));
+    items = allProducts[catId].map((p, i) => ({ ...p, cat: catId, idx: i }));
     const catName = categories.find(c => c.id === catId).name;
     document.getElementById('productsTitle').textContent = catName;
   }
   
-  grid.innerHTML = items.map(p => `
-    <div class="product">
+  grid.innerHTML = items.map((p) => `
+    <div class="product" onclick='openDetail("${p.cat}", ${p.idx})'>
       <div class="product-image">
         <span class="product-badge ${p.badge === 'NEW' ? 'new' : p.badge === 'HOT' ? 'hot' : ''}">${p.badge}</span>
         <img src="${p.img}" alt="${p.name}" loading="lazy">
       </div>
       <div class="product-info">
         <h3>${p.name}</h3>
-        <div class="stars">★★★★★</div>
+        <div class="stars">★★★★★ <span>(${p.reviewsCount})</span></div>
         <div class="price">SAR ${p.price} ${p.oldPrice ? `<span class="old-price">SAR ${p.oldPrice}</span>` : ''}</div>
-        <button class="cart-btn" onclick='addToCart(${JSON.stringify({name: p.name, price: p.price})})'>🛒 Add to Cart</button>
+        <button class="cart-btn" onclick='event.stopPropagation(); addToCart(${JSON.stringify({name: p.name, price: p.price})})'>🛒 Add to Cart</button>
       </div>
     </div>
   `).join('');
   setupReveal();
 }
 
-// ============ FILTER ============
 function filterProducts(catId) {
-  currentCategory = catId;
   document.querySelectorAll('.category').forEach(el => {
     el.classList.toggle('active', el.dataset.cat === catId);
   });
@@ -725,7 +1765,6 @@ function filterProducts(catId) {
 }
 
 function showAll() {
-  currentCategory = "all";
   document.querySelectorAll('.category').forEach(el => el.classList.remove('active'));
   renderProducts("all");
   scrollToProducts();
@@ -736,6 +1775,298 @@ function scrollToCategories() {
 }
 function scrollToProducts() {
   document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
+}
+
+// ============ DETAIL PAGE WITH 3D VIEWER ============
+function openDetail(catId, idx) {
+  const product = allProducts[catId][idx];
+  currentProduct = product;
+  selectedQty = 1;
+  renderDetail(product);
+  document.getElementById('detailPage').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('detailPage').scrollTop = 0;
+  setTimeout(setupViewer, 400);
+}
+
+function closeDetail() {
+  document.getElementById('detailPage').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function renderDetail(p) {
+  const container = document.getElementById('detailContainer');
+  const stars = '★'.repeat(Math.floor(p.rating)) + '☆'.repeat(5 - Math.floor(p.rating));
+  const img1 = p.img;
+  const img2 = p.imgAlt1 || p.img;
+  const img3 = p.imgAlt2 || p.img;
+  const img4 = p.imgAlt3 || p.img;
+  
+  container.innerHTML = `
+    <div class="detail-grid">
+      <!-- 3D VIEWER -->
+      <div class="viewer-wrap">
+        ${p.badge ? `<span class="detail-badge">${p.badge}</span>` : ''}
+        <div class="viewer-hint">👆 Drag to rotate 360°</div>
+        <div class="viewer-angle-badge" id="angleBadge">FRONT</div>
+        <div class="viewer-stage" id="viewerStage">
+          <div class="viewer-glow"></div>
+          <div class="viewer-3d" id="viewer3d">
+            <div class="viewer-face front"><img src="${img1}" alt="${p.name} front"></div>
+            <div class="viewer-face right"><img src="${img2}" alt="${p.name} right"></div>
+            <div class="viewer-face back"><img src="${img3}" alt="${p.name} back"></div>
+            <div class="viewer-face left"><img src="${img4}" alt="${p.name} left"></div>
+          </div>
+        </div>
+        <div class="viewer-controls">
+          <button class="viewer-btn active" id="autoBtn" onclick="toggleAuto()" title="Auto Rotate">⟳</button>
+          <button class="viewer-btn" onclick="rotateViewer('left')" title="Rotate Left">←</button>
+          <button class="viewer-btn" onclick="rotateViewer('right')" title="Rotate Right">→</button>
+          <button class="viewer-btn" onclick="rotateViewer('up')" title="Look Up">↑</button>
+          <button class="viewer-btn" onclick="rotateViewer('down')" title="Look Down">↓</button>
+          <button class="viewer-btn" onclick="resetViewer()" title="Reset">↺</button>
+        </div>
+      </div>
+      
+      <div class="detail-info">
+        <h1>${p.name}</h1>
+        <div class="detail-rating">
+          <span class="detail-stars">${stars}</span>
+          <span class="detail-rating-text">${p.rating} • ${p.reviewsCount} reviews</span>
+        </div>
+        <div class="detail-price">
+          <span class="detail-price-current">SAR ${p.price}</span>
+          ${p.oldPrice ? `<span class="detail-price-old">SAR ${p.oldPrice}</span>` : ''}
+          ${p.oldPrice ? `<span class="detail-price-save">Save SAR ${p.oldPrice - p.price}</span>` : ''}
+        </div>
+        <p class="detail-desc">${p.description}</p>
+        
+        <div class="detail-options">
+          <div class="detail-options-label">Color</div>
+          <div class="detail-colors">
+            ${p.colors.map((c, i) => `
+              <div class="color-option ${i === 0 ? 'selected' : ''}" 
+                   style="background:${c}" 
+                   onclick="selectColor(this)"></div>
+            `).join('')}
+          </div>
+          <div class="detail-options-label">Size</div>
+          <div class="detail-sizes">
+            ${p.sizes.map((s, i) => `
+              <div class="size-option ${i === 0 ? 'selected' : ''}" 
+                   onclick="selectSize(this)">${s}</div>
+            `).join('')}
+          </div>
+        </div>
+        
+        <div class="detail-qty">
+          <span class="detail-options-label" style="margin:0;">Quantity:</span>
+          <button class="qty-btn" onclick="changeQty(-1)">−</button>
+          <span class="qty-value" id="qtyValue">1</span>
+          <button class="qty-btn" onclick="changeQty(1)">+</button>
+        </div>
+        
+        <div class="detail-actions">
+          <button class="btn" onclick='addToCartFromDetail()'>🛒 Add to Cart</button>
+          <button class="btn btn-whatsapp" onclick='orderWhatsApp()'>💬 Order on WhatsApp</button>
+        </div>
+        
+        <div class="detail-features">
+          ${p.features.map(f => `
+            <div class="feature-item">
+              <span class="feature-icon">${f.icon}</span>
+              <h4>${f.title}</h4>
+              <p>${f.desc}</p>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    </div>
+    
+    <div class="reviews-section">
+      <div class="reviews-header">
+        <h2>Customer Reviews</h2>
+        <div class="reviews-summary">
+          <div class="reviews-avg">${p.rating}</div>
+          <div>
+            <div class="reviews-avg-stars">${stars}</div>
+            <div class="reviews-count">Based on ${p.reviewsCount} reviews</div>
+          </div>
+        </div>
+      </div>
+      <div class="reviews-list">
+        ${p.reviews.map(r => `
+          <div class="review-card">
+            <div class="review-top">
+              <div class="review-user">
+                <div class="review-avatar">${r.name.charAt(0)}</div>
+                <div>
+                  <div class="review-name">${r.name}</div>
+                  <div class="review-date">${r.date}</div>
+                </div>
+              </div>
+              <div class="review-stars">${'★'.repeat(r.rating)}${'☆'.repeat(5 - r.rating)}</div>
+            </div>
+            <p class="review-text">"${r.text}"</p>
+            <div class="review-verified">✓ Verified Purchase</div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `;
+}
+
+// ============ 3D VIEWER SETUP ============
+function setupViewer() {
+  const stage = document.getElementById('viewerStage');
+  const viewer = document.getElementById('viewer3d');
+  if (!stage || !viewer) return;
+  
+  // Reset state
+  viewerState.rotX = -15;
+  viewerState.rotY = 20;
+  viewerState.autoRotate = true;
+  viewerState.isDragging = false;
+  
+  applyViewerTransform();
+  viewer.classList.add('auto-rotate');
+  document.getElementById('autoBtn').classList.add('active');
+  
+  // Remove old listeners by cloning
+  const newStage = stage.cloneNode(true);
+  stage.parentNode.replaceChild(newStage, stage);
+  
+  const finalStage = document.getElementById('viewerStage');
+  const finalViewer = document.getElementById('viewer3d');
+  
+  const startDrag = (x, y) => {
+    viewerState.isDragging = true;
+    viewerState.lastX = x;
+    viewerState.lastY = y;
+    viewerState.autoRotate = false;
+    finalViewer.classList.remove('auto-rotate');
+    document.getElementById('autoBtn').classList.remove('active');
+  };
+  
+  const moveDrag = (x, y) => {
+    if (!viewerState.isDragging) return;
+    const dx = x - viewerState.lastX;
+    const dy = y - viewerState.lastY;
+    viewerState.rotY += dx * 0.5;
+    viewerState.rotX -= dy * 0.5;
+    viewerState.rotX = Math.max(-80, Math.min(80, viewerState.rotX));
+    viewerState.lastX = x;
+    viewerState.lastY = y;
+    applyViewerTransform();
+    updateAngleBadge();
+  };
+  
+  const endDrag = () => {
+    viewerState.isDragging = false;
+    // Restart auto rotate after 2s
+    setTimeout(() => {
+      if (!viewerState.isDragging && !viewerState.autoRotate) {
+        // Don't auto restart, let user click
+      }
+    }, 2000);
+  };
+  
+  // Mouse events
+  finalStage.addEventListener('mousedown', (e) => startDrag(e.clientX, e.clientY));
+  window.addEventListener('mousemove', (e) => moveDrag(e.clientX, e.clientY));
+  window.addEventListener('mouseup', endDrag);
+  
+  // Touch events
+  finalStage.addEventListener('touchstart', (e) => {
+    if (e.touches.length === 1) {
+      startDrag(e.touches[0].clientX, e.touches[0].clientY);
+    }
+  }, { passive: true });
+  finalStage.addEventListener('touchmove', (e) => {
+    if (e.touches.length === 1) {
+      moveDrag(e.touches[0].clientX, e.touches[0].clientY);
+    }
+  }, { passive: true });
+  finalStage.addEventListener('touchend', endDrag);
+}
+
+function applyViewerTransform() {
+  const viewer = document.getElementById('viewer3d');
+  if (!viewer) return;
+  viewer.style.transform = `rotateX(${viewerState.rotX}deg) rotateY(${viewerState.rotY}deg)`;
+}
+
+function updateAngleBadge() {
+  const badge = document.getElementById('angleBadge');
+  if (!badge) return;
+  const y = ((viewerState.rotY % 360) + 360) % 360;
+  let angle = 'FRONT';
+  if (y >= 45 && y < 135) angle = 'RIGHT SIDE';
+  else if (y >= 135 && y < 225) angle = 'BACK';
+  else if (y >= 225 && y < 315) angle = 'LEFT SIDE';
+  badge.textContent = angle;
+}
+
+function rotateViewer(dir) {
+  viewerState.autoRotate = false;
+  const viewer = document.getElementById('viewer3d');
+  viewer.classList.remove('auto-rotate');
+  document.getElementById('autoBtn').classList.remove('active');
+  
+  if (dir === 'left') viewerState.rotY -= 45;
+  if (dir === 'right') viewerState.rotY += 45;
+  if (dir === 'up') viewerState.rotX = Math.max(-80, viewerState.rotX + 15);
+  if (dir === 'down') viewerState.rotX = Math.min(80, viewerState.rotX - 15);
+  applyViewerTransform();
+  updateAngleBadge();
+}
+
+function toggleAuto() {
+  viewerState.autoRotate = !viewerState.autoRotate;
+  const viewer = document.getElementById('viewer3d');
+  const btn = document.getElementById('autoBtn');
+  if (viewerState.autoRotate) {
+    viewer.classList.add('auto-rotate');
+    btn.classList.add('active');
+  } else {
+    viewer.classList.remove('auto-rotate');
+    btn.classList.remove('active');
+  }
+}
+
+function resetViewer() {
+  viewerState.rotX = -15;
+  viewerState.rotY = 20;
+  applyViewerTransform();
+  updateAngleBadge();
+}
+
+function selectColor(el) {
+  document.querySelectorAll('.color-option').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+}
+function selectSize(el) {
+  document.querySelectorAll('.size-option').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+}
+function changeQty(delta) {
+  selectedQty = Math.max(1, selectedQty + delta);
+  document.getElementById('qtyValue').textContent = selectedQty;
+}
+
+function addToCartFromDetail() {
+  if (!currentProduct) return;
+  const existing = cart.find(i => i.name === currentProduct.name);
+  if (existing) existing.qty += selectedQty;
+  else cart.push({ name: currentProduct.name, price: currentProduct.price, qty: selectedQty });
+  saveCart();
+  showToast(`✅ ${selectedQty}x ${currentProduct.name} cart mein add!`);
+}
+
+function orderWhatsApp() {
+  if (!currentProduct) return;
+  const msg = `🛒 *Order - RORJAN*\n\n📦 Product: ${currentProduct.name}\n💰 Price: SAR ${currentProduct.price}\n📊 Quantity: ${selectedQty}\n\nTotal: SAR ${currentProduct.price * selectedQty}`;
+  window.open(`https://wa.me/966XXXXXXXXX?text=${encodeURIComponent(msg)}`, '_blank');
 }
 
 // ============ CART ============
