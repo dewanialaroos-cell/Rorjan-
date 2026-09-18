@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RORJAN</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; background: #080808; color: #fff; }
+    
+    header {
+      height: 82px; background: #090909; border-bottom: 1px solid #292929;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 6%; position: sticky; top: 0; z-index: 100;
+    }
+    .logo { font-family: Georgia, serif; font-size: 34px; letter-spacing: 3px; color: #d8ad55; }
+    .crown { display: block; text-align: center; font-size: 20px; margin-bottom: -3px; }
+    nav { display: flex; gap: 32px; }
+    nav a { color: #eee; text-decoration: none; font-size: 14px; }
+    nav a:hover { color: #d8ad55; }
+    .actions { display: flex; align-items: center; gap: 18px; }
+    .search { width: 220px; padding: 11px 16px; border: 1px solid #444; border-radius: 25px; background: #111; color: white; outline: none; }
+    .icon { font-size: 22px; cursor: pointer; }
+    
+    .hero {
+      min-height: 480px; display: flex; align-items: center; padding: 60px 8%;
+      background: linear-gradient(90deg, rgba(0,0,0,.95), rgba(0,0,0,.45)),
+      url("https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1800&q=85") center/cover;
+    }
+    .hero-content { max-width: 560px; }
+    .small-title { color: #d8ad55; letter-spacing: 2px; font-size: 13px; margin-bottom: 18px; }
+    .hero h1 { font-family: Georgia, serif; font-size: 72px; letter-spacing: 7px; color: #d8ad55; margin-bottom: 18px; }
+    .hero p { color: #ddd; line-height: 1.7; font-size: 17px; margin-bottom: 28px; }
+    .btn { background: #d8ad55; color: #080808; border: none; padding: 14px 30px; border-radius: 4px; font-weight: bold; cursor: pointer; }
+    .btn:hover { background: #f0cb78; }
+    
+    .categories {
+      padding: 42px 6%; display: grid; grid-template-columns: repeat(8, 1fr);
+      gap: 15px; border-bottom: 1px solid #222;
+    }
+    .category { text-align: center; padding: 20px 8px; border: 1px solid #292929; border-radius: 10px; background: #101010; transition: .3s; }
+    .category:hover { border-color: #d8ad55; transform: translateY(-4px); }
+    .category .cat-icon { font-size: 28px; margin-bottom: 12px; }
+    .category h3 { font-size: 13px; margin-bottom: 6px; }
+    .category p { color: #888; font-size: 11px; }
+    
+    .section { padding: 55px 6%; }
+    .section-title { display: flex; justify-content: space-between; align-items: center; margin-bottom: 28px; }
+    .section-title h2 { font-family: Georgia, serif; font-size: 30px; }
+    .view { color: #d8ad55; text-decoration: none; }
+    .products { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
+    .product { background: #101010; border: 1px solid #292929; border-radius: 8px; overflow: hidden; transition: .3s; }
+    .product:hover { transform: translateY(-5px); border-color: #d8ad55; }
+    .product-image { height: 210px; background: #ddd; overflow: hidden; }
+    .product-image img { width: 100%; height: 100%; object-fit: cover; }
+    .product-info { padding: 14px; }
+    .product h3 { font-size: 14px; margin-bottom: 8px; }
+    .stars { color: #f5c542; font-size: 13px; margin-bottom: 10px; }
+    .price { color: #fff; font-weight: bold; margin-bottom: 12px; }
+    .old-price { color: #777; text-decoration: line-through; font-size: 11px; margin-left: 5px; }
+    .cart-btn { width: 100%; padding: 10px; background: transparent; color: #d8ad55; border: 1px solid #d8ad55; border-radius: 4px; cursor: pointer; }
+    .cart-btn:hover { background: #d8ad55; color: #000; }
+    
+    .promos { padding: 0 6% 55px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .promo { min-height: 180px; padding: 35px; display: flex; flex-direction: column; justify-content: center; background-size: cover; background-position: center; border-radius: 8px; overflow: hidden; position: relative; }
+    .promo::before { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,.58); }
+    .promo-content { position: relative; z-index: 1; }
+    .promo h2 { font-family: Georgia, serif; margin-bottom: 8px; }
+    .promo p { color: #ddd; margin-bottom: 15px; font-size: 13px; }
+    .promo button { width: fit-content; padding: 9px 18px; background: transparent; color: white; border: 1px solid #d8ad55; border-radius: 3px; }
+    .fashion { background-image: url("https://images.unsplash.com/photo-1490578474895-699cd4e2cf59?auto=format&fit=crop&w=900&q=80"); }
+    .home { background-image: url("https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=80"); }
+    .electronics { background-image: url("https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=900&q=80"); }
+    
+    footer { background: #050505; border-top: 1px solid #292929; padding: 50px 6% 25px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 40px; }
+    .footer-logo { font-family: Georgia, serif; color: #d8ad55; font-size: 27px; letter-spacing: 3px; margin-bottom: 15px; }
+    footer p { color: #888; font-size: 13px; line-height: 1.7; }
+    footer h3 { margin-bottom: 18px; color: #fff; }
+    footer a { display: block; color: #888; text-decoration: none; margin-bottom: 10px; font-size: 13px; }
+    footer a:hover { color: #d8ad55; }
+    .newsletter { display: flex; margin-top: 15px; }
+    .newsletter input { width: 65%; padding: 11px; background: #111; border: 1px solid #333; color: white; }
+    .newsletter button { padding: 11px 15px; background: #d8ad55; border: none; font-weight: bold; }
+    .copyright { margin-top: 40px; padding-top: 20px; border-top: 1px solid #222; text-align: center; color: #666; font-size: 12px; }
+    
+    @media (max-width: 900px) {
+      header { padding: 0 20px; }
+      nav { display: none; }
+      .search { width: 130px; }
+      .hero { min-height: 420px; padding: 45px 25px; }
+      .hero h1 { font-size: 48px; }
+      .categories { grid-template-columns: repeat(4, 1fr); padding: 25px; }
+      .products { grid-template-columns: repeat(2, 1fr); }
+      .promos { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 550px) {
+      .logo { font-size: 24px; }
+      .actions { gap: 8px; }
+      .search { display: none; }
+      .hero h1 { font-size: 40px; letter-spacing: 4px; }
+      .categories { grid-template-columns: repeat(2, 1fr); }
+      .products { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      .product-image { height: 160px; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo"><span class="crown">♕</span>RORJAN</div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Shop</a>
+      <a href="#">Categories</a>
+      <a href="#">About Us</a>
+      <a href="#">Contact</a>
+    </nav>
+    <div class="actions">
+      <input class="search" type="text" placeholder="Search for products...">
+      <span class="icon">♙</span>
+      <span class="icon">♡</span>
+      <span class="icon">🛒</span>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <div class="small-title">PREMIUM QUALITY | MODERN STYLE | FAST DELIVERY</div>
+      <h1>RORJAN</h1>
+      <p>Discover premium products designed for your everyday life. Quality, style and comfort — all in one place.</p>
+      <button class="btn">Shop Now →</button>
+    </div>
+  </section>
+
+  <section class="categories">
+    <div class="category"><div class="cat-icon">👕</div><h3>Men's Fashion</h3><p>Style for Him</p></div>
+    <div class="category"><div class="cat-icon">👗</div><h3>Women's Fashion</h3><p>Elegance Always</p></div>
+    <div class="category"><div class="cat-icon">📱</div><h3>Electronics</h3><p>Latest Gadgets</p></div>
+    <div class="category"><div class="cat-icon">🏠</div><h3>Home & Living</h3><p>Better Living</p></div>
+    <div class="category"><div class="cat-icon">💄</div><h3>Beauty</h3><p>Skincare & Makeup</p></div>
+    <div class="category"><div class="cat-icon">👟</div><h3>Sports</h3><p>Active Lifestyle</p></div>
+    <div class="category"><div class="cat-icon">🧸</div><h3>Baby & Kids</h3><p>Little Happiness</p></div>
+    <div class="category"><div class="cat-icon">💎</div><h3>Accessories</h3><p>Complete Your Look</p></div>
+  </section>
+
+  <section class="section">
+    <div class="section-title">
+      <h2>Featured Products</h2>
+      <a class="view" href="#">View All →</a>
+    </div>
+    <div class="products">
+      <div class="product">
+        <div class="product-image"><img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=600&q=80"></div>
+        <div class="product-info">
+          <h3>Men's Hoodie</h3>
+          <div class="stars">★★★★★</div>
+          <div class="price">SAR 159 <span class="old-price">SAR 199</span></div>
+          <button class="cart-btn">🛒 Add to Cart</button>
+        </div>
+      </div>
+      <div class="product">
+        <div class="product-image"><img src="https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?auto=format&fit=crop&w=600&q=80"></div>
+        <div class="product-info">
+          <h3>Smartphone</h3>
+          <div class="stars">★★★★★</div>
+          <div class="price">SAR 2,999</div>
+          <button class="cart-btn">🛒 Add to Cart</button>
+        </div>
+      </div>
+      <div class="product">
+        <div class="product-image"><img src="https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=600&q=80"></div>
+        <div class="product-info">
+          <h3>Luxury Perfume</h3>
+          <div class="stars">★★★★★</div>
+          <div class="price">SAR 229 <span class="old-price">SAR 369</span></div>
+          <button class="cart-btn">🛒 Add to Cart</button>
+        </div>
+      </div>
+      <div class="product">
+        <div class="product-image"><img src="https://images.unsplash.com/photo-1544117519-31a4b719223d?auto=format&fit=crop&w=600&q=80"></div>
+        <div class="product-info">
+          <h3>Smart Watch</h3>
+          <div class="stars">★★★★★</div>
+          <div class="price">SAR 349</div>
+          <button class="cart-btn">🛒 Add to Cart</button>
+        </div>
+      </div>
+      <div class="product">
+        <div class="product-image"><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80"></div>
+        <div class="product-info">
+          <h3>Running Shoes</h3>
+          <div class="stars">★★★★★</div>
+          <div class="price">SAR 279</div>
+          <button class="cart-btn">🛒 Add to Cart</button>
+        </div>
+      </div>
+      <div class="product">
+        <div class="product-image"><img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80"></div>
+        <div class="product-info">
+          <h3>Premium Backpack</h3>
+          <div class="stars">★★★★★</div>
+          <div class="price">SAR 129</div>
+          <button class="cart-btn">🛒 Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="promos">
+    <div class="promo fashion">
+      <div class="promo-content">
+        <h2>MEN'S FASHION</h2>
+        <p>Modern Looks for Every Moment</p>
+        <button>Shop Now →</button>
+      </div>
+    </div>
+    <div class="promo home">
+      <div class="promo-content">
+        <h2>HOME & LIVING</h2>
+        <p>Make your home better</p>
+        <button>Shop Now →</button>
+      </div>
+    </div>
+    <div class="promo electronics">
+      <div class="promo-content">
+        <h2>ELECTRONICS</h2>
+        <p>Latest Tech & Gadgets</p>
+        <button>Shop Now →</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">♕ RORJAN</div>
+        <p>Premium products. Better lifestyle. Quality you can trust.</p>
+      </div>
+      <div>
+        <h3>Quick Links</h3>
+        <a href="#">Home</a>
+        <a href="#">Shop</a>
+        <a href="#">Categories</a>
+        <a href="#">About Us</a>
+        <a href="#">Contact</a>
+      </div>
+      <div>
+        <h3>Customer Service</h3>
+        <a href="#">FAQs</a>
+        <a href="#">Shipping Policy</a>
+        <a href="#">Return Policy</a>
+        <a href="#">Track Order</a>
+        <a href="#">Terms & Conditions</a>
+      </div>
+      <div>
+        <h3>Newsletter</h3>
+        <p>Get the latest updates and offers.</p>
+        <div class="newsletter">
+          <input type="email" placeholder="Your email">
+          <button>Subscribe</button>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">© 2026 RORJAN. All rights reserved.</div>
+  </footer>
+
+</body>
+</html>
